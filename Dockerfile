@@ -1,7 +1,7 @@
 FROM ruby:latest
 ENV DEBIAN_FRONTEND noninteractive
 
-LABEL MAINTAINER Amir Pourmand
+label MAINTAINER Amir Pourmand
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     locales \

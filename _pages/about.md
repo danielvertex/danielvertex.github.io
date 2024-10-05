@@ -18,7 +18,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a Mechanical Design Engineer with a passion for technology and innovation. Throughout my career, I have combined my technical background with learning in data analysis. I am enthusiastic about the design process, from conception to the creation of practical solutions, and enjoy working on projects that require precision and creativity. I am constantly learning and seek to apply my knowledge in both the world of design and data.
 
 Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
 

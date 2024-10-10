@@ -1,12 +1,14 @@
 ---
 layout: page
-title: practical_case_1
-description: with background image
-img: assets/img/12.jpg
-importance: 1
-category: work
-related_publications: true
+title: Cyclistic Project
+description: Google Data Analytics Capstone Project
+img: assets/img/13.jpg
+importance: 2
+category: R
+giscus_comments: true
 ---
+
+You can find a slide presentation [here](https://drive.google.com/file/d/1uNC35c59zYAWCu7_nfDrw1dSJPzbGKoJ/view?usp=sharing).
 
 # INTRODUCCTION
 
@@ -165,6 +167,7 @@ We start with loading the packages we will use.
     library(viridis)
     library(hrbrthemes)
     library(almanac)
+    library(Cairo)
 
     getwd()
 
@@ -192,7 +195,7 @@ Load the datasets an rename
 ## WRANGLE DATA AND COMBINE INTO A SINGLE FILE
 
 Before combining the datasets, it was checked whether the data frames
-were row-bindable. The function compare\_df\_cols() was used, which
+were row-bindable. The function `compare_df_cols()` was used, which
 returns TRUE if there are no mismatching rows.
 
     compare_df_cols_same(M01_2023,M02_2023,M03_2023,M04_2023,M05_2023,M06_2023,M07_2023,M08_2023,M09_2023,M10_2023,M11_2023,M12_2023)
@@ -243,6 +246,14 @@ Columns were renamed to make them understandable.
 
 ## CLEAN
 
+The duration of each ride in minutes will be calculated and stored in
+the `ride_length` column. The `difftime` function computes the
+difference between the `ended_at and` `started_at` timestamps.
+Initially, the result is of class `difftime`, which is not suitable for
+direct numerical operations.
+
+    annual_data$ride_length <- difftime(annual_data$ended_at, annual_data$started_at, units = "mins")
+
 It was verified that the user\_type column only had two possible values,
 and it was checked for duplicates and empty IDs.
 
@@ -261,14 +272,6 @@ and it was checked for duplicates and empty IDs.
     sum(is.na(annual_data$ride_length))
 
     ## [1] 0
-
-The duration of each ride in minutes will be calculated and stored in
-the `ride_length` column. The `difftime` function computes the
-difference between the `ended_at and` `started_at` timestamps.
-Initially, the result is of class `difftime`, which is not suitable for
-direct numerical operations.
-
-    annual_data$ride_length <- difftime(annual_data$ended_at, annual_data$started_at, units = "mins")
 
 Columns will be added to list the date, month, day, and year of each
 ride. This will facilitate the aggregation of ride data by month, day,
@@ -308,13 +311,13 @@ ride length.
 
     annual_data <-  annual_data %>% 
       mutate(day_of_week = recode(day_of_week
-                                  ,"lunes" = "monday"
-                                  ,"martes" = "tuesday"
-                                  ,"miércoles" = "wednesday" 
-                                  ,"jueves" = "thursday"
-                                  ,"viernes" = "friday"
-                                  ,"sábado" = "saturday"
-                                  ,"domingo" = "sunday"))
+                                  ,"lunes" = "Monday"
+                                  ,"martes" = "Tuesday"
+                                  ,"miércoles" = "Wednesday" 
+                                  ,"jueves" = "Thursday"
+                                  ,"viernes" = "Friday"
+                                  ,"sábado" = "Saturday"
+                                  ,"domingo" = "Sunday"))
 
 Use `glimpse` to inspect the data and verify the type of the
 `ride_length` column. It is important to note that the `ride_length`
@@ -342,7 +345,7 @@ column is initially of class `difftime`.
     ## $ month              <chr> "01", "01", "01", "01", "01", "01", "01", "01", "01…
     ## $ day                <chr> "21", "10", "02", "22", "12", "31", "15", "25", "25…
     ## $ year               <chr> "2023", "2023", "2023", "2023", "2023", "2023", "20…
-    ## $ day_of_week        <chr> "saturday", "tuesday", "monday", "sunday", "thursda…
+    ## $ day_of_week        <chr> "Saturday", "Tuesday", "Monday", "Sunday", "Thursda…
 
 Convert the `ride_length` column from `difftime` to a numeric type to
 enable further numerical operations. This conversion is necessary
@@ -356,6 +359,30 @@ calculations.
     sum(is.na(annual_data_v2))
 
     ## [1] 0
+
+    glimpse(annual_data_v2)
+
+    ## Rows: 4,331,707
+    ## Columns: 19
+    ## $ ride_id            <chr> "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+    ## $ rideable_type      <chr> "electric_bike", "classic_bike", "electric_bike", "…
+    ## $ started_at         <dttm> 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+    ## $ ended_at           <dttm> 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+    ## $ start_station_name <chr> "Lincoln Ave & Fullerton Ave", "Kimbark Ave & 53rd …
+    ## $ start_station_id   <chr> "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+    ## $ end_station_name   <chr> "Hampden Ct & Diversey Ave", "Greenwood Ave & 47th …
+    ## $ end_station_id     <chr> "202480.0", "TA1308000002", "599", "TA1308000002", …
+    ## $ start_lat          <dbl> 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+    ## $ start_lng          <dbl> -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+    ## $ end_lat            <dbl> 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+    ## $ end_lng            <dbl> -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+    ## $ user_type          <chr> "member", "member", "casual", "member", "member", "…
+    ## $ ride_length        <dbl> 10.850000, 8.483333, 13.233333, 8.766667, 15.316667…
+    ## $ date               <date> 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+    ## $ month              <chr> "01", "01", "01", "01", "01", "01", "01", "01", "01…
+    ## $ day                <chr> "21", "10", "02", "22", "12", "31", "15", "25", "25…
+    ## $ year               <chr> "2023", "2023", "2023", "2023", "2023", "2023", "20…
+    ## $ day_of_week        <chr> "Saturday", "Tuesday", "Monday", "Sunday", "Thursda…
 
 Verify that all ride lengths are positive and that there are no empty
 values.
@@ -397,6 +424,143 @@ values.
 
     ## [1] 0
 
+    glimpse(annual_data_v2)
+
+    ## Rows: 4,243,193
+    ## Columns: 19
+    ## $ ride_id            <chr> "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+    ## $ rideable_type      <chr> "electric_bike", "classic_bike", "electric_bike", "…
+    ## $ started_at         <dttm> 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+    ## $ ended_at           <dttm> 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+    ## $ start_station_name <chr> "Lincoln Ave & Fullerton Ave", "Kimbark Ave & 53rd …
+    ## $ start_station_id   <chr> "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+    ## $ end_station_name   <chr> "Hampden Ct & Diversey Ave", "Greenwood Ave & 47th …
+    ## $ end_station_id     <chr> "202480.0", "TA1308000002", "599", "TA1308000002", …
+    ## $ start_lat          <dbl> 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+    ## $ start_lng          <dbl> -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+    ## $ end_lat            <dbl> 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+    ## $ end_lng            <dbl> -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+    ## $ user_type          <chr> "member", "member", "casual", "member", "member", "…
+    ## $ ride_length        <dbl> 10.850000, 8.483333, 13.233333, 8.766667, 15.316667…
+    ## $ date               <date> 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+    ## $ month              <chr> "01", "01", "01", "01", "01", "01", "01", "01", "01…
+    ## $ day                <chr> "21", "10", "02", "22", "12", "31", "15", "25", "25…
+    ## $ year               <chr> "2023", "2023", "2023", "2023", "2023", "2023", "20…
+    ## $ day_of_week        <chr> "Saturday", "Tuesday", "Monday", "Sunday", "Thursda…
+
+    summary(annual_data_v2)
+
+    ##    ride_id          rideable_type        started_at                    
+    ##  Length:4243193     Length:4243193     Min.   :2023-01-01 00:02:06.00  
+    ##  Class :character   Class :character   1st Qu.:2023-05-20 18:06:14.00  
+    ##  Mode  :character   Mode  :character   Median :2023-07-20 18:29:02.00  
+    ##                                        Mean   :2023-07-16 01:55:18.68  
+    ##                                        3rd Qu.:2023-09-16 19:11:08.00  
+    ##                                        Max.   :2023-12-31 23:58:55.00  
+    ##     ended_at                     start_station_name start_station_id  
+    ##  Min.   :2023-01-01 00:07:23.0   Length:4243193     Length:4243193    
+    ##  1st Qu.:2023-05-20 18:28:00.0   Class :character   Class :character  
+    ##  Median :2023-07-20 18:46:38.0   Mode  :character   Mode  :character  
+    ##  Mean   :2023-07-16 02:11:31.9                                        
+    ##  3rd Qu.:2023-09-16 19:27:30.0                                        
+    ##  Max.   :2024-01-01 14:20:23.0                                        
+    ##  end_station_name   end_station_id       start_lat       start_lng     
+    ##  Length:4243193     Length:4243193     Min.   :41.65   Min.   :-87.84  
+    ##  Class :character   Class :character   1st Qu.:41.88   1st Qu.:-87.66  
+    ##  Mode  :character   Mode  :character   Median :41.90   Median :-87.64  
+    ##                                        Mean   :41.90   Mean   :-87.64  
+    ##                                        3rd Qu.:41.93   3rd Qu.:-87.63  
+    ##                                        Max.   :42.06   Max.   :-87.53  
+    ##     end_lat         end_lng        user_type          ride_length      
+    ##  Min.   : 0.00   Min.   :-87.84   Length:4243193     Min.   :   1.017  
+    ##  1st Qu.:41.88   1st Qu.:-87.66   Class :character   1st Qu.:   5.833  
+    ##  Median :41.90   Median :-87.64   Mode  :character   Median :  10.017  
+    ##  Mean   :41.90   Mean   :-87.64                      Mean   :  16.220  
+    ##  3rd Qu.:41.93   3rd Qu.:-87.63                      3rd Qu.:  17.733  
+    ##  Max.   :42.06   Max.   :  0.00                      Max.   :1439.867  
+    ##       date               month               day                year          
+    ##  Min.   :2023-01-01   Length:4243193     Length:4243193     Length:4243193    
+    ##  1st Qu.:2023-05-20   Class :character   Class :character   Class :character  
+    ##  Median :2023-07-20   Mode  :character   Mode  :character   Mode  :character  
+    ##  Mean   :2023-07-15                                                           
+    ##  3rd Qu.:2023-09-16                                                           
+    ##  Max.   :2023-12-31                                                           
+    ##  day_of_week       
+    ##  Length:4243193    
+    ##  Class :character  
+    ##  Mode  :character  
+    ##                    
+    ##                    
+    ## 
+
+# ANALYSIS
+
+**How do annual members and casual riders differ in their use of
+Cyclistic’s bikes?** Based on the quartiles, most ride duration fall
+below 50 minutes. By setting this limit, the focus remains on the most
+relevant portion of the dataset, avoiding the distortion caused by
+extreme outliers. This helps to clearly visualize the central
+distribution of the data without being skewed by a few extreme values.
+
+    sum(is.na(annual_data_v2$ride_length))
+
+    ## [1] 0
+
+    Q1 <- quantile(annual_data_v2$ride_length, 0.25, na.rm = TRUE)
+    Q3 <- quantile(annual_data_v2$ride_length, 0.75, na.rm = TRUE)
+    #Q1.2 <- quantile(annual_data_v2$ride_length, 0.25)
+    #Q3.2 <- quantile(annual_data_v2$ride_length, 0.75)
+
+    IQR_value <- Q3 - Q1
+
+    ### Definir límites (1.5 veces el IQR)
+    lower_bound <- Q1 - 1.5 * IQR_value
+    upper_bound <- Q3 + 1.5 * IQR_value
+
+    ### Filtrar los valores dentro de estos límites
+    annual_data_v2 <- annual_data_v2 %>%
+     filter(ride_length >= lower_bound & ride_length <= upper_bound)
+
+    # Ceate
+    annual_data_v2 %>%
+      ggplot(aes(x = user_type, y = ride_length, fill = user_type)) +
+      geom_violin(width = .4) +
+      geom_boxplot(width = 0.1, color = "black", alpha = 0.2, outlier.shape = NA) +
+      scale_fill_manual(values=c("#4DB6AC", "#FFAB40")) +
+      theme_ipsum() +
+      labs(title = "Ride length distribution by user type ",
+      x ="User type",y= "Ride Length (min)", fill = "User type")
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/unnamed-chunk-17-1.png" title="Ride length distribution by user type" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+    glimpse(annual_data_v2)
+
+    ## Rows: 3,920,772
+    ## Columns: 19
+    ## $ ride_id            <chr> "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+    ## $ rideable_type      <chr> "electric_bike", "classic_bike", "electric_bike", "…
+    ## $ started_at         <dttm> 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+    ## $ ended_at           <dttm> 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+    ## $ start_station_name <chr> "Lincoln Ave & Fullerton Ave", "Kimbark Ave & 53rd …
+    ## $ start_station_id   <chr> "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+    ## $ end_station_name   <chr> "Hampden Ct & Diversey Ave", "Greenwood Ave & 47th …
+    ## $ end_station_id     <chr> "202480.0", "TA1308000002", "599", "TA1308000002", …
+    ## $ start_lat          <dbl> 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+    ## $ start_lng          <dbl> -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+    ## $ end_lat            <dbl> 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+    ## $ end_lng            <dbl> -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+    ## $ user_type          <chr> "member", "member", "casual", "member", "member", "…
+    ## $ ride_length        <dbl> 10.850000, 8.483333, 13.233333, 8.766667, 15.316667…
+    ## $ date               <date> 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+    ## $ month              <chr> "01", "01", "01", "01", "01", "01", "01", "01", "01…
+    ## $ day                <chr> "21", "10", "02", "22", "12", "31", "15", "25", "25…
+    ## $ year               <chr> "2023", "2023", "2023", "2023", "2023", "2023", "20…
+    ## $ day_of_week        <chr> "Saturday", "Tuesday", "Monday", "Sunday", "Thursda…
+
 Convert numeric month representation to month names
 
     typeof(annual_data_v2$month)
@@ -418,38 +582,30 @@ Convert numeric month representation to month names
                                   ,"11" = "November"
                                   ,"12" = "December"))
 
-# ANALYSIS
+    glimpse(annual_data_v2)
 
-**How do annual members and casual riders differ in their use of
-Cyclistic’s bikes?** Based on the quartiles, most ride durations fall
-below 50 minutes. By setting this limit, the focus remains on the most
-relevant portion of the dataset, avoiding the distortion caused by
-extreme outliers. This helps to clearly visualize the central
-distribution of the data without being skewed by a few extreme values.
+    ## Rows: 3,920,772
+    ## Columns: 19
+    ## $ ride_id            <chr> "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+    ## $ rideable_type      <chr> "electric_bike", "classic_bike", "electric_bike", "…
+    ## $ started_at         <dttm> 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+    ## $ ended_at           <dttm> 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+    ## $ start_station_name <chr> "Lincoln Ave & Fullerton Ave", "Kimbark Ave & 53rd …
+    ## $ start_station_id   <chr> "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+    ## $ end_station_name   <chr> "Hampden Ct & Diversey Ave", "Greenwood Ave & 47th …
+    ## $ end_station_id     <chr> "202480.0", "TA1308000002", "599", "TA1308000002", …
+    ## $ start_lat          <dbl> 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+    ## $ start_lng          <dbl> -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+    ## $ end_lat            <dbl> 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+    ## $ end_lng            <dbl> -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+    ## $ user_type          <chr> "member", "member", "casual", "member", "member", "…
+    ## $ ride_length        <dbl> 10.850000, 8.483333, 13.233333, 8.766667, 15.316667…
+    ## $ date               <date> 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+    ## $ month              <chr> "January", "January", "January", "January", "Januar…
+    ## $ day                <chr> "21", "10", "02", "22", "12", "31", "15", "25", "25…
+    ## $ year               <chr> "2023", "2023", "2023", "2023", "2023", "2023", "20…
+    ## $ day_of_week        <chr> "Saturday", "Tuesday", "Monday", "Sunday", "Thursda…
 
-    Q1 <- quantile(annual_data_v2$ride_length, 0.25, na.rm = TRUE)
-    Q3 <- quantile(annual_data_v2$ride_length, 0.75, na.rm = TRUE)
-    IQR_value <- Q3 - Q1
-
-    ### Definir límites (1.5 veces el IQR)
-    lower_bound <- Q1 - 1.5 * IQR_value
-    upper_bound <- Q3 + 1.5 * IQR_value
-
-    ### Filtrar los valores dentro de estos límites
-    annual_data_v2 <- annual_data_v2 %>%
-     filter(ride_length >= lower_bound & ride_length <= upper_bound)
-
-    # Crear el gráfico de violín con los datos filtrados
-    annual_data_v2 %>%
-      ggplot(aes(x = user_type, y = ride_length, fill = user_type)) +
-      geom_violin(width = .4) +
-      geom_boxplot(width = 0.1, color = "black", alpha = 0.2, outlier.shape = NA) +
-      scale_fill_viridis(aesthetics = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
-      theme_ipsum() +
-      labs(title = "Ride length distribution by user type ",
-      x ="User type",y= "Ride Length (min)", fill = "User type")
-
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-14-1.png)
 Rides made in the year 2023 will be displayed for each user type.
 
     annual_data_v2 %>% 
@@ -469,7 +625,11 @@ Rides made in the year 2023 will be displayed for each user type.
       geom_text(x=5.5, aes(y=label_position, label=label, color=user_type),size = 6)+
       coord_polar(theta="y", clip = "off")+xlim(c(1, 5)) + theme_void() + theme(legend.position = "none")
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-15-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/unnamed-chunk-20-1.png" title="Amount of users" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 Descriptive analysis of the `ride_length` variable will provide insights
 and the distribution of ride duration across different user types.
@@ -524,13 +684,37 @@ Compare the two user types
 Convert to ordered factor the column and save the file for further
 analysis.
 
-    annual_data_v2$day_of_week <- ordered(annual_data_v2$day_of_week, levels=c("monday", "tuesday", "wednesday", "thursday", "friday", "saturday","sunday"))
+    annual_data_v2$day_of_week <- ordered(annual_data_v2$day_of_week, levels=c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"))
     annual_data_v2$month <- ordered(annual_data_v2$month, levels=c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"))
 
     write_csv(annual_data_v2, "D:/Proyecto_R/annual_data_v2.csv")
 
 It can be observed that the duration of rides is longer for casual users
 during weekends.
+
+    glimpse(annual_data_v2)
+
+    ## Rows: 3,920,772
+    ## Columns: 19
+    ## $ ride_id            <chr> "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+    ## $ rideable_type      <chr> "electric_bike", "classic_bike", "electric_bike", "…
+    ## $ started_at         <dttm> 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+    ## $ ended_at           <dttm> 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+    ## $ start_station_name <chr> "Lincoln Ave & Fullerton Ave", "Kimbark Ave & 53rd …
+    ## $ start_station_id   <chr> "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+    ## $ end_station_name   <chr> "Hampden Ct & Diversey Ave", "Greenwood Ave & 47th …
+    ## $ end_station_id     <chr> "202480.0", "TA1308000002", "599", "TA1308000002", …
+    ## $ start_lat          <dbl> 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+    ## $ start_lng          <dbl> -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+    ## $ end_lat            <dbl> 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+    ## $ end_lng            <dbl> -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+    ## $ user_type          <chr> "member", "member", "casual", "member", "member", "…
+    ## $ ride_length        <dbl> 10.850000, 8.483333, 13.233333, 8.766667, 15.316667…
+    ## $ date               <date> 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+    ## $ month              <ord> January, January, January, January, January, Januar…
+    ## $ day                <chr> "21", "10", "02", "22", "12", "31", "15", "25", "25…
+    ## $ year               <chr> "2023", "2023", "2023", "2023", "2023", "2023", "20…
+    ## $ day_of_week        <ord> Saturday, Tuesday, Monday, Sunday, Thursday, Tuesda…
 
     annual_data_v2 %>%
       aggregate(ride_length ~ user_type + day_of_week, FUN = mean) %>%
@@ -539,9 +723,14 @@ during weekends.
       geom_point(size = 3) +
       labs(title = "Average Ride Duration by User Type and Day of the Week", x = "Day of Week", y = "Average Ride Length (min)", color = "User Type") +
       scale_color_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
-      theme_minimal() 
+      theme_minimal()
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-19-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Average Ride Duration by User Type and Day of the Week-1.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 This chart allows for easy visualization of how the average ride
 duration varies between casual users and members throughout the months
 of the year.
@@ -557,7 +746,12 @@ of the year.
       theme_minimal() + 
       theme(axis.text.x = element_text(angle = 45))
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-20-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Average Ride Duration by User Type and Month-1.png" title="Average Ride Length (min)" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 Analyze users data by user type, weekday, weekends and holidays The
 number of rides on federal holidays is calculated using the
 `cal_us_federal()` function, which serves as an example calendar
@@ -579,10 +773,14 @@ holidays.”
       labs(title = "Rides on holidays", x = "User type", y="Number of rides", fill = "User type")  +
       scale_y_continuous(labels = comma)
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-21-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Rides on holidays-1.png" title="Rides on holidays." class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
     annual_data_v2 %>% 
-      filter(day_of_week %in% c("saturday", "sunday")) %>% 
+      filter(day_of_week %in% c("Saturday", "Sunday")) %>% 
       group_by(user_type) %>% 
       summarise(number_of_rides = n()) %>%
       ggplot(aes(x = user_type, y = number_of_rides, fill = user_type)) +
@@ -594,10 +792,14 @@ holidays.”
       labs(title = "Rides on weekends", x = "User type", y="Number of rides", fill = "User type")  +
       scale_y_continuous(labels = comma)
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-22-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Rides on weekends-1.png" title="Rides on weekends" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
     annual_data_v2 %>% 
-      filter(day_of_week %in% c("monday", "tuesday", "wednesday", "thursday", "friday")) %>% 
+      filter(day_of_week %in% c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")) %>% 
       group_by(user_type) %>% 
       summarise(number_of_rides = n()) %>%
       ggplot(aes(x = user_type, y = number_of_rides, fill = user_type)) +
@@ -609,7 +811,12 @@ holidays.”
       labs(title = "Rides on weekdays", x = "User type", y="Number of rides", fill = "User type")  +
       scale_y_continuous(labels = comma)
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-23-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Rides on weekdays-1.png" title="Rides on weekdays" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 This creates a seasons data frame with columns representing the start
 and end months for each season, the name of each season, and a custom
 color for each. These values will be used later to mark the different
@@ -664,7 +871,11 @@ and the maximum and minimum values.
       theme(panel.background = element_rect(fill = NA, color = NA)) + 
       theme(axis.text.x = element_text(angle = 45))
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-26-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Monthly Evolution of the Number of Rides by User Type and Season-1.png" title="Monthly Evolution of the Number of Rides by User Type and Season" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
     annual_data_v2 %>%
       group_by(user_type, rideable_type) %>%
@@ -684,7 +895,11 @@ and the maximum and minimum values.
       scale_y_continuous(labels = comma) +
       theme(panel.background = element_rect(fill = "#F5F5F5")) 
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-27-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Number of Rides by Transport Type and User Type-1.png" title="Number of Rides by Transport Type and User Type" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
     annual_data_v2 %>%
       filter(user_type == "casual") %>% 
@@ -699,7 +914,11 @@ and the maximum and minimum values.
       scale_y_continuous(labels = comma)+
       coord_flip()
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-28-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Top 10 start stations for Casual Users by Number of Rides-1.png" title="Top 10 start stations for Casual Users by Numberof Rides" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
     annual_data_v2 %>%
       filter(user_type == "casual") %>% 
@@ -714,7 +933,11 @@ and the maximum and minimum values.
       scale_y_continuous(labels = comma)+
       coord_flip()
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-29-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Top 10 end stations for Casual Users by Number of Rides-1.png" title="Top 10 end stations for Casual Users by Number of Rides" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
     annual_data_v2 %>%
       filter(user_type == "member") %>% 
@@ -729,7 +952,11 @@ and the maximum and minimum values.
       scale_y_continuous(labels = comma)+
       coord_flip()
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-30-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Top 10 Start Stations for Member Users by Number of Rides-1.png" title="Top 10 Start Stations for Member Users by Number of Rides-1.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
     annual_data_v2 %>%
       filter(user_type == "member") %>% 
@@ -744,4 +971,8 @@ and the maximum and minimum values.
       scale_y_continuous(labels = comma)+
       coord_flip()
 
-![](Practical_case_1_files/figure-markdown_strict/unnamed-chunk-31-1.png)
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/Top 10 end stations for Member Users by Number of Rides-1.png" title="Top 10 end stations for Member Users by Number of Rides" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>

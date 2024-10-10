@@ -9,6 +9,7 @@ giscus_comments: true
 ---
 
 You can find a slide presentation [here](https://drive.google.com/file/d/1uNC35c59zYAWCu7_nfDrw1dSJPzbGKoJ/view?usp=sharing).
+Link to kaggle notebook [here](https://www.kaggle.com/code/danielphi/google-data-analytics-capstone-project)
 
 # INTRODUCCTION
 

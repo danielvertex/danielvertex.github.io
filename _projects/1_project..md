@@ -11,7 +11,7 @@ giscus_comments: true
 You can find a slide presentation [here](https://drive.google.com/file/d/1uNC35c59zYAWCu7_nfDrw1dSJPzbGKoJ/view?usp=sharing).
 Link to kaggle notebook [here](https://www.kaggle.com/code/danielphi/google-data-analytics-capstone-project)
 
-# INTRODUCCTION
+# INTRODUCTION
 
 You are a junior data analyst working in the marketing analyst team at
 Cyclistic, a bike-share company in Chicago. The director of marketing
@@ -977,3 +977,28 @@ and the maximum and minimum values.
       {% include figure.liquid loading="eager" path="assets/img/Top 10 end stations for Member Users by Number of Rides-1.png" title="Top 10 end stations for Member Users by Number of Rides" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+
+
+**Thank you so much for taking the time to check out my project!**
+
+# References
+
+-   Piasa, N. (2023, August 12). [Google Data Analytics Capstone: Cyclistic Bike-Share (Python)](https://medium.com/@nattayapiasa/google-data-analytics-capstone-cyclistic-bike-share-python-5bd42c98f5ad). *Medium*.
+
+-   Data con Steven. (2024, January 3). [Google Data Analytics \| Proyecto Final \| Caso Bellabeat [Video]. YouTube.](https://www.youtube.com/watch?v=Jgv7EwEECFg)
+
+-   <https://www.statology.org>
+
+-   [https://datavizcatalogue.com](https://datavizcatalogue.com/)
+
+## TikTok profiles with nice data content
+
+-   [@quimicaendata](https://www.tiktok.com/@quimicaendata)
+
+-   [@armandodatos](https://www.tiktok.com/@armandodatos)
+
+-   [@mai_analytics](https://www.tiktok.com/@mai_analytics)
+
+-   [@mkfnx](https://www.tiktok.com/@mkfnx)
+
+-   [@datamoments](https://www.tiktok.com/@datamoments)

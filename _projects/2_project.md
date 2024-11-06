@@ -4,7 +4,7 @@ title: Stock Price Viewer
 description: Stock Price Viewer made with python
 img: assets/img/13.jpg
 importance: 2
-category: wiwi
+category: Python
 giscus_comments: true
 ---
 

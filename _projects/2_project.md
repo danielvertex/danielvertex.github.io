@@ -9,7 +9,8 @@ giscus_comments: true
 ---
 
 # Stock Price Viewer
-Video Demo:  [here](https://youtu.be/z2xsYft5r74)
+
+{% include video.liquid path="https://www.youtube.com/watch?v=z2xsYft5r74" class="img-fluid rounded z-depth-1" %}
 #### Description: This program can graphically provide a 30-day period of adjusted closing price of two stocks as a png image and textual ticker information.
 ## USAGE
 The way to choose the desired option is with up and down arrows.

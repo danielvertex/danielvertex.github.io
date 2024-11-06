@@ -9,8 +9,12 @@ giscus_comments: true
 ---
 
 # Stock Price Viewer
-
-{% include video.liquid path="https://www.youtube.com/embed/z2xsYft5r74" class="img-fluid rounded z-depth-1" %}
+s
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {{% include video.liquid path="https://www.youtube.com/embed/z2xsYft5r74" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 #### Description: This program can graphically provide a 30-day period of adjusted closing price of two stocks as a png image and textual ticker information.
 ## USAGE

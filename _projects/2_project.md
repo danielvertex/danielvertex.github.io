@@ -2,7 +2,7 @@
 layout: page
 title: Stock Price Viewer
 description: Stock Price Viewer made with python
-img: assets/img/thiker_price.jpg
+img: assets/img/ticker_price.jpg
 importance: 2
 category: Python
 giscus_comments: true

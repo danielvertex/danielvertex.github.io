@@ -11,7 +11,7 @@ giscus_comments: true
 # Stock Price Viewer
 
 
-<div>
+<div >
     {% include video.liquid path="https://www.youtube.com/embed/z2xsYft5r74" class="img-fluid rounded z-depth-1" %}
 </div>
 

@@ -44,7 +44,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-a-post-with-image-galleries",
+            },{id: "post-cinco-pasos-para-hacer-un-análisis-estadístico",
+      
+        title: "Cinco pasos para hacer un análisis estadístico.",
+      
+      description: "march &amp; april, looking forward to summer",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Cinco-pasos-para-hacer-un-an%C3%A1lisis-estad%C3%ADstico/";
+        
+      },
+    },{id: "post-a-post-with-image-galleries",
       
         title: "a post with image galleries",
       

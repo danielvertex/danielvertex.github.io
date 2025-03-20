@@ -1,0 +1,621 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Google Data Analytics Capstone Project | Daniel Herrera </title> <meta name="author" content="Daniel Herrera"> <meta name="description" content="with background image"> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%93%88&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://danielvertex.github.io/projects/Practical_case_1/"> <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Daniel</span> Herrera </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/people/">people </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">submenus </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/books/">bookshelf</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/blog/">blog</a> </div> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Google Data Analytics Capstone Project</h1> <p class="post-description">with background image</p> </header> <article> <p>You can find a slide presentation can be found <a href="https://drive.google.com/file/d/1uNC35c59zYAWCu7_nfDrw1dSJPzbGKoJ/view?usp=sharing" rel="external nofollow noopener" target="_blank">here</a>.</p> <h1 id="introducction">INTRODUCCTION</h1> <p>You are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company’s future success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives must approve your recommendations, so they must be backed up with compelling data insights and professional data visualizations.</p> <h1 id="scenario">SCENARIO</h1> <p>You are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company’s future success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members.</p> <h2 id="characters-and-teams">Characters and Teams</h2> <p><strong>Cyclistic:</strong> A bike-sharing program that includes 5,800 bicycles and 600 stations. Cyclistic stands out for also offering recumbent bikes, hand tricycles, and cargo bikes that provide a more inclusive bike-sharing experience for people with disabilities and cyclists who cannot use a standard two-wheeled bicycle. Most cyclists choose traditional bikes, while around 8% of cyclists use the assisted options. Cyclistic users are more likely to ride for recreation, but about 30% use the bikes for commuting to work each day.</p> <p><strong>Lily Moreno:</strong> The Director of Marketing and your manager. Moreno is responsible for developing campaigns and initiatives to promote the bike-sharing program. Campaigns may include email, social media, and other channels.</p> <p><strong>Cyclistic’s Marketing Data Analytics Team:</strong> A team of data analysts responsible for collecting, analyzing, and reporting data that helps drive Cyclistic’s marketing strategy. You joined this team six months ago, and you have been dedicated not only to understanding Cyclistic’s mission and business goals but also to finding ways to help Cyclistic achieve them from your position as a junior data analyst.</p> <p><strong>Cyclistic Executive Team:</strong> The highly detail-oriented executive team will decide whether to approve the recommended marketing program.</p> <h2 id="about-the-company">About the Company</h2> <p>In 2016, Cyclistic launched a successful bike-sharing service. Since then, the program has grown to include a fleet of 5,824 geo-referenced bicycles, locked within a network of 692 stations throughout Chicago. The bikes can be unlocked from one station and returned to any other station in the system at any time.</p> <p>Until now, Cyclistic’s marketing strategy has focused on building general brand recognition and attracting broad consumer segments. One of the key approaches that made this possible was the flexibility of their pricing plans: single-ride passes, full-day passes, and annual memberships. Customers who purchase single-ride or full-day passes are called casual riders. Customers who purchase annual memberships are called Cyclistic members.</p> <p>Cyclistic’s financial analysts concluded that annual members are far more profitable than casual riders. While the flexible pricing helps Cyclistic attract more customers, Moreno believes that maximizing the number of annual members will be key to future growth. Rather than creating a marketing campaign aimed at all new customers, Moreno believes there is significant potential to convert casual riders into members. She points out that casual riders are already familiar with Cyclistic’s program and have chosen Cyclistic for their mobility needs.</p> <p>Moreno set a clear goal: to design marketing strategies aimed at converting casual riders into annual members. However, to do so, the marketing analytics team needs a better understanding of how annual members and casual riders differ, why casual riders would purchase a membership, and how digital media might influence their marketing tactics. Moreno and her team are interested in analyzing Cyclistic’s historical bike trip data to identify trends.</p> <h2 id="questions">Questions</h2> <p>Three questions will guide the future marketing program: + How do annual members and casual riders differ in their use of Cyclistic’s bikes? + Why would casual riders purchase annual memberships from Cyclistic? + How can Cyclistic use digital media to influence casual riders to become members?</p> <p>Moreno assigned you the first question to answer: <strong>How do annual members and casual riders differ in their use of Cyclistic’s bikes?</strong></p> <p>You will create a report with the following deliverables:</p> <ul> <li>A clear instruction of the business task</li> <li>A description of all data sources used</li> <li>Documentation of all data cleaning and manipulations</li> <li>A summary of your analysis</li> <li>Supporting visualizations and key findings</li> <li>The three most important recommendations based on your analysis</li> </ul> <p>This project will follow the steps of the data analysis process: ask, prepare, process, analyze, share, and act.</p> <h1 id="prepare">PREPARE</h1> <p>Historical ride data from Cyclistic will be used to analyze and identify trends. The latest 12 months of Cyclistic ride data can be downloaded here. (Note: The datasets have different datasets are appropriate and will enable the answering of the company’s questions. The data has been provided by Motivate International Inc. under this license.) These are public data that can be utilized to explore how different types of customers use Cyclistic bikes. However, it should be noted that, for privacy reasons, the use of personally identifiable information of cyclists is prohibited. This means that connections between pass purchases and credit card numbers cannot be established to determine if casual riders reside within the Cyclistic service area or if they have purchased multiple single-ride passes. The data for the entire year of 2023 was selected to avoid biases associated with partial periods and to ensure that factors such as holidays, seasons, and other seasonal patterns that may influence bicycle usage are taken into account, also meets the ROCCC criteria (Relevant, Original, Complete, Consistent, and Correct), ensuring the quality and reliability of the data for conducting an accurate analysis.</p> <h1 id="process">PROCESS</h1> <p>R with will be used for data analysis, statistics, and visualization due to their significant advantages. R is specifically designed for statistical tasks, featuring an extensive ecosystem of packages that enhance its capabilities, such as ggplot2 for visualization and dplyr for data manipulation. The active R community provides abundant resources and support. RStudio serves as an integrated development environment (IDE) that facilitates project organization, includes tools for syntax highlighting and debugging, and supports version control systems like Git. Additionally, RStudio’s integration with R Markdown allows for the creation of reproducible documents that combine text, code, and results, making it ideal for reporting. Together, R and RStudio create a powerful combination preferred by analysts and data scientists.</p> <p>The data for the year comes in 12 separate CSV files, one for each month. Once downloaded, the compare_df_cols_same() function from the janitor package was used to verify that all 12 datasets were suitable for merging.</p> <p>We start with loading the packages we will use.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>library(tidyverse)  
+
+## Warning: package 'tidyverse' was built under R version 4.4.3
+
+## Warning: package 'ggplot2' was built under R version 4.4.3
+
+## Warning: package 'dplyr' was built under R version 4.4.3
+
+## Warning: package 'lubridate' was built under R version 4.4.3
+
+library(lubridate)  
+library(ggplot2)
+library(dplyr)
+library(janitor)
+
+## Warning: package 'janitor' was built under R version 4.4.3
+
+library(scales)
+
+## Warning: package 'scales' was built under R version 4.4.3
+
+library(viridis)
+
+## Warning: package 'viridis' was built under R version 4.4.3
+
+library(hrbrthemes)
+
+## Warning: package 'hrbrthemes' was built under R version 4.4.3
+
+library(almanac)
+
+## Warning: package 'almanac' was built under R version 4.4.3
+
+library(Cairo)
+
+getwd()
+
+## [1] "D:/Proyecto_R"
+
+setwd("D:/Proyecto_R")
+</code></pre></div></div> <h2 id="collect-data">Collect data</h2> <p>Load the datasets an rename</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>M01_2023 &lt;- read_csv("202301-divvy-tripdata.csv")
+M02_2023 &lt;- read_csv("202302-divvy-tripdata.csv")
+M03_2023 &lt;- read_csv("202303-divvy-tripdata.csv")
+M04_2023 &lt;- read_csv("202304-divvy-tripdata.csv")
+M05_2023 &lt;- read_csv("202305-divvy-tripdata.csv")
+M06_2023 &lt;- read_csv("202306-divvy-tripdata.csv")
+M07_2023 &lt;- read_csv("202307-divvy-tripdata.csv")
+M08_2023 &lt;- read_csv("202308-divvy-tripdata.csv")
+M09_2023 &lt;- read_csv("202309-divvy-tripdata.csv")
+M10_2023 &lt;- read_csv("202310-divvy-tripdata.csv")
+M11_2023 &lt;- read_csv("202311-divvy-tripdata.csv")
+M12_2023 &lt;- read_csv("202312-divvy-tripdata.csv")
+</code></pre></div></div> <h2 id="wrangle-data-and-combine-into-a-single-file">WRANGLE DATA AND COMBINE INTO A SINGLE FILE</h2> <p>Before combining the datasets, it was checked whether the data frames were row-bindable. The function <code class="language-plaintext highlighter-rouge">compare_df_cols()</code> was used, which returns TRUE if there are no mismatching rows.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compare_df_cols_same(M01_2023,M02_2023,M03_2023,M04_2023,M05_2023,M06_2023,M07_2023,M08_2023,M09_2023,M10_2023,M11_2023,M12_2023)
+
+## [1] TRUE
+</code></pre></div></div> <p>All the data was combined into a single data frame, and incongruities were searched for.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data &lt;-bind_rows(M01_2023,M02_2023,M03_2023,M04_2023,M05_2023,M06_2023,M07_2023,M08_2023,M09_2023,M10_2023,M11_2023,M12_2023)
+str(annual_data)
+
+## spc_tbl_ [5,719,877 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ ride_id           : chr [1:5719877] "F96D5A74A3E41399" "13CB7EB698CEDB88" "BD88A2E670661CE5" "C90792D034FED968" ...
+##  $ rideable_type     : chr [1:5719877] "electric_bike" "classic_bike" "electric_bike" "classic_bike" ...
+##  $ started_at        : POSIXct[1:5719877], format: "2023-01-21 20:05:42" "2023-01-10 15:37:36" ...
+##  $ ended_at          : POSIXct[1:5719877], format: "2023-01-21 20:16:33" "2023-01-10 15:46:05" ...
+##  $ start_station_name: chr [1:5719877] "Lincoln Ave &amp; Fullerton Ave" "Kimbark Ave &amp; 53rd St" "Western Ave &amp; Lunt Ave" "Kimbark Ave &amp; 53rd St" ...
+##  $ start_station_id  : chr [1:5719877] "TA1309000058" "TA1309000037" "RP-005" "TA1309000037" ...
+##  $ end_station_name  : chr [1:5719877] "Hampden Ct &amp; Diversey Ave" "Greenwood Ave &amp; 47th St" "Valli Produce - Evanston Plaza" "Greenwood Ave &amp; 47th St" ...
+##  $ end_station_id    : chr [1:5719877] "202480.0" "TA1308000002" "599" "TA1308000002" ...
+##  $ start_lat         : num [1:5719877] 41.9 41.8 42 41.8 41.8 ...
+##  $ start_lng         : num [1:5719877] -87.6 -87.6 -87.7 -87.6 -87.6 ...
+##  $ end_lat           : num [1:5719877] 41.9 41.8 42 41.8 41.8 ...
+##  $ end_lng           : num [1:5719877] -87.6 -87.6 -87.7 -87.6 -87.6 ...
+##  $ member_casual     : chr [1:5719877] "member" "member" "casual" "member" ...
+##  - attr(*, "spec")=
+##   .. cols(
+##   ..   ride_id = col_character(),
+##   ..   rideable_type = col_character(),
+##   ..   started_at = col_datetime(format = ""),
+##   ..   ended_at = col_datetime(format = ""),
+##   ..   start_station_name = col_character(),
+##   ..   start_station_id = col_character(),
+##   ..   end_station_name = col_character(),
+##   ..   end_station_id = col_character(),
+##   ..   start_lat = col_double(),
+##   ..   start_lng = col_double(),
+##   ..   end_lat = col_double(),
+##   ..   end_lng = col_double(),
+##   ..   member_casual = col_character()
+##   .. )
+##  - attr(*, "problems")=&lt;externalptr&gt;
+</code></pre></div></div> <p>Columns were renamed to make them understandable.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data &lt;- rename(annual_data, user_type = member_casual)
+</code></pre></div></div> <h2 id="clean">CLEAN</h2> <p>The duration of each ride in minutes will be calculated and stored in the <code class="language-plaintext highlighter-rouge">ride_length</code> column. The <code class="language-plaintext highlighter-rouge">difftime</code> function computes the difference between the <code class="language-plaintext highlighter-rouge">ended_at and</code> <code class="language-plaintext highlighter-rouge">started_at</code> timestamps. Initially, the result is of class <code class="language-plaintext highlighter-rouge">difftime</code>, which is not suitable for direct numerical operations.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data$ride_length &lt;- difftime(annual_data$ended_at, annual_data$started_at, units = "mins")
+</code></pre></div></div> <p>It was verified that the user_type column only had two possible values, and it was checked for duplicates and empty IDs.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unique(annual_data$user_type)
+
+## [1] "member" "casual"
+
+sum(duplicated(annual_data$ride_id))
+
+## [1] 0
+
+sum(is.na(annual_data$ride_id))
+
+## [1] 0
+
+sum(is.na(annual_data$ride_length))
+
+## [1] 0
+</code></pre></div></div> <p>Columns will be added to list the date, month, day, and year of each ride. This will facilitate the aggregation of ride data by month, day, or year.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data$date &lt;- as.Date(annual_data$started_at) #The default format is yyyy-mm-dd
+annual_data$month &lt;- format(as.Date(annual_data$date), "%m")
+annual_data$day &lt;- format(as.Date(annual_data$date), "%d")
+annual_data$year &lt;- format(as.Date(annual_data$date), "%Y")
+annual_data$day_of_week &lt;- format(as.Date(annual_data$date), "%A")
+glimpse(annual_data)
+
+## Rows: 5,719,877
+## Columns: 19
+## $ ride_id            &lt;chr&gt; "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+## $ rideable_type      &lt;chr&gt; "electric_bike", "classic_bike", "electric_bike", "…
+## $ started_at         &lt;dttm&gt; 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+## $ ended_at           &lt;dttm&gt; 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+## $ start_station_name &lt;chr&gt; "Lincoln Ave &amp; Fullerton Ave", "Kimbark Ave &amp; 53rd …
+## $ start_station_id   &lt;chr&gt; "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+## $ end_station_name   &lt;chr&gt; "Hampden Ct &amp; Diversey Ave", "Greenwood Ave &amp; 47th …
+## $ end_station_id     &lt;chr&gt; "202480.0", "TA1308000002", "599", "TA1308000002", …
+## $ start_lat          &lt;dbl&gt; 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+## $ start_lng          &lt;dbl&gt; -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+## $ end_lat            &lt;dbl&gt; 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+## $ end_lng            &lt;dbl&gt; -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+## $ user_type          &lt;chr&gt; "member", "member", "casual", "member", "member", "…
+## $ ride_length        &lt;drtn&gt; 10.850000 mins, 8.483333 mins, 13.233333 mins, 8.7…
+## $ date               &lt;date&gt; 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+## $ month              &lt;chr&gt; "01", "01", "01", "01", "01", "01", "01", "01", "01…
+## $ day                &lt;chr&gt; "21", "10", "02", "22", "12", "31", "15", "25", "25…
+## $ year               &lt;chr&gt; "2023", "2023", "2023", "2023", "2023", "2023", "20…
+## $ day_of_week        &lt;chr&gt; "sábado", "martes", "lunes", "domingo", "jueves", "…
+</code></pre></div></div> <p>The language will be changed to English, and a column will be added for ride length.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data &lt;-  annual_data %&gt;% 
+  mutate(day_of_week = recode(day_of_week
+                              ,"lunes" = "Monday"
+                              ,"martes" = "Tuesday"
+                              ,"miércoles" = "Wednesday" 
+                              ,"jueves" = "Thursday"
+                              ,"viernes" = "Friday"
+                              ,"sábado" = "Saturday"
+                              ,"domingo" = "Sunday"))
+</code></pre></div></div> <p>Use <code class="language-plaintext highlighter-rouge">glimpse</code> to inspect the data and verify the type of the <code class="language-plaintext highlighter-rouge">ride_length</code> column. It is important to note that the <code class="language-plaintext highlighter-rouge">ride_length</code> column is initially of class <code class="language-plaintext highlighter-rouge">difftime</code>.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>glimpse(annual_data)
+
+## Rows: 5,719,877
+## Columns: 19
+## $ ride_id            &lt;chr&gt; "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+## $ rideable_type      &lt;chr&gt; "electric_bike", "classic_bike", "electric_bike", "…
+## $ started_at         &lt;dttm&gt; 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+## $ ended_at           &lt;dttm&gt; 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+## $ start_station_name &lt;chr&gt; "Lincoln Ave &amp; Fullerton Ave", "Kimbark Ave &amp; 53rd …
+## $ start_station_id   &lt;chr&gt; "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+## $ end_station_name   &lt;chr&gt; "Hampden Ct &amp; Diversey Ave", "Greenwood Ave &amp; 47th …
+## $ end_station_id     &lt;chr&gt; "202480.0", "TA1308000002", "599", "TA1308000002", …
+## $ start_lat          &lt;dbl&gt; 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+## $ start_lng          &lt;dbl&gt; -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+## $ end_lat            &lt;dbl&gt; 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+## $ end_lng            &lt;dbl&gt; -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+## $ user_type          &lt;chr&gt; "member", "member", "casual", "member", "member", "…
+## $ ride_length        &lt;drtn&gt; 10.850000 mins, 8.483333 mins, 13.233333 mins, 8.7…
+## $ date               &lt;date&gt; 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+## $ month              &lt;chr&gt; "01", "01", "01", "01", "01", "01", "01", "01", "01…
+## $ day                &lt;chr&gt; "21", "10", "02", "22", "12", "31", "15", "25", "25…
+## $ year               &lt;chr&gt; "2023", "2023", "2023", "2023", "2023", "2023", "20…
+## $ day_of_week        &lt;chr&gt; "Saturday", "Tuesday", "Monday", "Sunday", "Thursda…
+</code></pre></div></div> <p>Convert the <code class="language-plaintext highlighter-rouge">ride_length</code> column from <code class="language-plaintext highlighter-rouge">difftime</code> to a numeric type to enable further numerical operations. This conversion is necessary because <code class="language-plaintext highlighter-rouge">difftime</code> objects cannot be directly utilized in mathematical calculations.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data$ride_length &lt;- as.numeric(annual_data$ride_length)
+
+#remove rows from the data frame that have NA values in at least one column
+annual_data_v2 &lt;- annual_data[complete.cases(annual_data),]
+sum(is.na(annual_data_v2))
+
+## [1] 0
+
+glimpse(annual_data_v2)
+
+## Rows: 4,331,707
+## Columns: 19
+## $ ride_id            &lt;chr&gt; "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+## $ rideable_type      &lt;chr&gt; "electric_bike", "classic_bike", "electric_bike", "…
+## $ started_at         &lt;dttm&gt; 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+## $ ended_at           &lt;dttm&gt; 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+## $ start_station_name &lt;chr&gt; "Lincoln Ave &amp; Fullerton Ave", "Kimbark Ave &amp; 53rd …
+## $ start_station_id   &lt;chr&gt; "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+## $ end_station_name   &lt;chr&gt; "Hampden Ct &amp; Diversey Ave", "Greenwood Ave &amp; 47th …
+## $ end_station_id     &lt;chr&gt; "202480.0", "TA1308000002", "599", "TA1308000002", …
+## $ start_lat          &lt;dbl&gt; 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+## $ start_lng          &lt;dbl&gt; -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+## $ end_lat            &lt;dbl&gt; 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+## $ end_lng            &lt;dbl&gt; -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+## $ user_type          &lt;chr&gt; "member", "member", "casual", "member", "member", "…
+## $ ride_length        &lt;dbl&gt; 10.850000, 8.483333, 13.233333, 8.766667, 15.316667…
+## $ date               &lt;date&gt; 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+## $ month              &lt;chr&gt; "01", "01", "01", "01", "01", "01", "01", "01", "01…
+## $ day                &lt;chr&gt; "21", "10", "02", "22", "12", "31", "15", "25", "25…
+## $ year               &lt;chr&gt; "2023", "2023", "2023", "2023", "2023", "2023", "20…
+## $ day_of_week        &lt;chr&gt; "Saturday", "Tuesday", "Monday", "Sunday", "Thursda…
+</code></pre></div></div> <p>Verify that all ride lengths are positive and that there are no empty values.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#search for negative values, less than 1 or grater than one day (1440 minutes)
+sum((annual_data$ride_length&lt;=0))
+
+## [1] 1269
+
+annual_data_v2 %&gt;% 
+  filter(ride_length&lt;=0 | ride_length  &gt; 1440)
+
+## # A tibble: 702 × 19
+##    ride_id          rideable_type started_at          ended_at           
+##    &lt;chr&gt;            &lt;chr&gt;         &lt;dttm&gt;              &lt;dttm&gt;             
+##  1 F4F4A74BF1FB016D classic_bike  2023-01-06 15:59:56 2023-01-07 16:41:17
+##  2 3F5B7E5AD8A6FE18 electric_bike 2023-01-17 08:31:49 2023-01-17 08:31:49
+##  3 5394CACAFE68B950 electric_bike 2023-01-05 09:10:39 2023-01-05 09:10:39
+##  4 4AE8A56D4F625567 electric_bike 2023-01-05 16:53:43 2023-01-05 16:53:43
+##  5 C42B78BC641B2610 docked_bike   2023-01-10 14:49:17 2023-01-11 14:52:22
+##  6 171805AF2A8BD1AF classic_bike  2023-01-18 20:48:35 2023-01-19 21:14:52
+##  7 AB6BF61F4BB57AAB electric_bike 2023-01-08 14:27:26 2023-01-08 14:27:26
+##  8 89AB3E68A1FE1D42 classic_bike  2023-01-13 18:00:46 2023-01-14 18:58:38
+##  9 D591DA5ED36A2F38 classic_bike  2023-01-11 13:36:04 2023-01-12 14:09:39
+## 10 6B3734E0279EB5A6 electric_bike 2023-02-19 17:52:09 2023-02-19 17:52:09
+## # ℹ 692 more rows
+## # ℹ 15 more variables: start_station_name &lt;chr&gt;, start_station_id &lt;chr&gt;,
+## #   end_station_name &lt;chr&gt;, end_station_id &lt;chr&gt;, start_lat &lt;dbl&gt;,
+## #   start_lng &lt;dbl&gt;, end_lat &lt;dbl&gt;, end_lng &lt;dbl&gt;, user_type &lt;chr&gt;,
+## #   ride_length &lt;dbl&gt;, date &lt;date&gt;, month &lt;chr&gt;, day &lt;chr&gt;, year &lt;chr&gt;,
+## #   day_of_week &lt;chr&gt;
+
+#applying the result 
+annual_data_v2 &lt;- annual_data_v2 %&gt;% 
+  filter(!(ride_length&lt;=1 | ride_length  &gt; 1440))
+
+#search for NA values in ride_length column
+sum(is.na(annual_data_v2$ride_length))
+
+## [1] 0
+
+glimpse(annual_data_v2)
+
+## Rows: 4,243,193
+## Columns: 19
+## $ ride_id            &lt;chr&gt; "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+## $ rideable_type      &lt;chr&gt; "electric_bike", "classic_bike", "electric_bike", "…
+## $ started_at         &lt;dttm&gt; 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+## $ ended_at           &lt;dttm&gt; 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+## $ start_station_name &lt;chr&gt; "Lincoln Ave &amp; Fullerton Ave", "Kimbark Ave &amp; 53rd …
+## $ start_station_id   &lt;chr&gt; "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+## $ end_station_name   &lt;chr&gt; "Hampden Ct &amp; Diversey Ave", "Greenwood Ave &amp; 47th …
+## $ end_station_id     &lt;chr&gt; "202480.0", "TA1308000002", "599", "TA1308000002", …
+## $ start_lat          &lt;dbl&gt; 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+## $ start_lng          &lt;dbl&gt; -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+## $ end_lat            &lt;dbl&gt; 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+## $ end_lng            &lt;dbl&gt; -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+## $ user_type          &lt;chr&gt; "member", "member", "casual", "member", "member", "…
+## $ ride_length        &lt;dbl&gt; 10.850000, 8.483333, 13.233333, 8.766667, 15.316667…
+## $ date               &lt;date&gt; 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+## $ month              &lt;chr&gt; "01", "01", "01", "01", "01", "01", "01", "01", "01…
+## $ day                &lt;chr&gt; "21", "10", "02", "22", "12", "31", "15", "25", "25…
+## $ year               &lt;chr&gt; "2023", "2023", "2023", "2023", "2023", "2023", "20…
+## $ day_of_week        &lt;chr&gt; "Saturday", "Tuesday", "Monday", "Sunday", "Thursda…
+
+summary(annual_data_v2)
+
+##    ride_id          rideable_type        started_at                    
+##  Length:4243193     Length:4243193     Min.   :2023-01-01 00:02:06.00  
+##  Class :character   Class :character   1st Qu.:2023-05-20 18:06:14.00  
+##  Mode  :character   Mode  :character   Median :2023-07-20 18:29:02.00  
+##                                        Mean   :2023-07-16 01:55:18.68  
+##                                        3rd Qu.:2023-09-16 19:11:08.00  
+##                                        Max.   :2023-12-31 23:58:55.00  
+##     ended_at                     start_station_name start_station_id  
+##  Min.   :2023-01-01 00:07:23.0   Length:4243193     Length:4243193    
+##  1st Qu.:2023-05-20 18:28:00.0   Class :character   Class :character  
+##  Median :2023-07-20 18:46:38.0   Mode  :character   Mode  :character  
+##  Mean   :2023-07-16 02:11:31.9                                        
+##  3rd Qu.:2023-09-16 19:27:30.0                                        
+##  Max.   :2024-01-01 14:20:23.0                                        
+##  end_station_name   end_station_id       start_lat       start_lng     
+##  Length:4243193     Length:4243193     Min.   :41.65   Min.   :-87.84  
+##  Class :character   Class :character   1st Qu.:41.88   1st Qu.:-87.66  
+##  Mode  :character   Mode  :character   Median :41.90   Median :-87.64  
+##                                        Mean   :41.90   Mean   :-87.64  
+##                                        3rd Qu.:41.93   3rd Qu.:-87.63  
+##                                        Max.   :42.06   Max.   :-87.53  
+##     end_lat         end_lng        user_type          ride_length      
+##  Min.   : 0.00   Min.   :-87.84   Length:4243193     Min.   :   1.017  
+##  1st Qu.:41.88   1st Qu.:-87.66   Class :character   1st Qu.:   5.833  
+##  Median :41.90   Median :-87.64   Mode  :character   Median :  10.017  
+##  Mean   :41.90   Mean   :-87.64                      Mean   :  16.220  
+##  3rd Qu.:41.93   3rd Qu.:-87.63                      3rd Qu.:  17.733  
+##  Max.   :42.06   Max.   :  0.00                      Max.   :1439.867  
+##       date               month               day                year          
+##  Min.   :2023-01-01   Length:4243193     Length:4243193     Length:4243193    
+##  1st Qu.:2023-05-20   Class :character   Class :character   Class :character  
+##  Median :2023-07-20   Mode  :character   Mode  :character   Mode  :character  
+##  Mean   :2023-07-15                                                           
+##  3rd Qu.:2023-09-16                                                           
+##  Max.   :2023-12-31                                                           
+##  day_of_week       
+##  Length:4243193    
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## 
+</code></pre></div></div> <h1 id="analysis">ANALYSIS</h1> <p><strong>How do annual members and casual riders differ in their use of Cyclistic’s bikes?</strong> Based on the quartiles, most ride duration fall below 50 minutes. By setting this limit, the focus remains on the most relevant portion of the dataset, avoiding the distortion caused by extreme outliers. This helps to clearly visualize the central distribution of the data without being skewed by a few extreme values.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sum(is.na(annual_data_v2$ride_length))
+
+## [1] 0
+
+Q1 &lt;- quantile(annual_data_v2$ride_length, 0.25, na.rm = TRUE)
+Q3 &lt;- quantile(annual_data_v2$ride_length, 0.75, na.rm = TRUE)
+#Q1.2 &lt;- quantile(annual_data_v2$ride_length, 0.25)
+#Q3.2 &lt;- quantile(annual_data_v2$ride_length, 0.75)
+
+IQR_value &lt;- Q3 - Q1
+
+### Definir límites (1.5 veces el IQR)
+lower_bound &lt;- Q1 - 1.5 * IQR_value
+upper_bound &lt;- Q3 + 1.5 * IQR_value
+
+### Filtrar los valores dentro de estos límites
+annual_data_v2 &lt;- annual_data_v2 %&gt;%
+ filter(ride_length &gt;= lower_bound &amp; ride_length &lt;= upper_bound)
+
+# Crear el gráfico de violín con los datos filtrados
+annual_data_v2 %&gt;%
+  ggplot(aes(x = user_type, y = ride_length, fill = user_type)) +
+  geom_violin(width = .4) +
+  geom_boxplot(width = 0.1, color = "black", alpha = 0.2, outlier.shape = NA) +
+  scale_fill_manual(values=c("#4DB6AC", "#FFAB40")) +
+  theme_ipsum() +
+  labs(title = "Ride length distribution by user type ",
+  x ="User type",y= "Ride Length (min)", fill = "User type")
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/unnamed-chunk-17-1.png" alt=""></p> <p>Convert numeric month representation to month names</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typeof(annual_data_v2$month)
+
+## [1] "character"
+
+annual_data_v2 &lt;-  annual_data_v2 %&gt;% 
+  mutate(month = recode(month
+                              ,"01" = "January"
+                              ,"02" = "February"
+                              ,"03" = "March" 
+                              ,"04" = "April"
+                              ,"05" = "May"
+                              ,"06" = "June"
+                              ,"07" = "July"
+                              ,"08" = "August"
+                              ,"09" = "September" 
+                              ,"10" = "October"
+                              ,"11" = "November"
+                              ,"12" = "December"))
+
+glimpse(annual_data_v2)
+
+## Rows: 3,920,772
+## Columns: 19
+## $ ride_id            &lt;chr&gt; "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+## $ rideable_type      &lt;chr&gt; "electric_bike", "classic_bike", "electric_bike", "…
+## $ started_at         &lt;dttm&gt; 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+## $ ended_at           &lt;dttm&gt; 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+## $ start_station_name &lt;chr&gt; "Lincoln Ave &amp; Fullerton Ave", "Kimbark Ave &amp; 53rd …
+## $ start_station_id   &lt;chr&gt; "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+## $ end_station_name   &lt;chr&gt; "Hampden Ct &amp; Diversey Ave", "Greenwood Ave &amp; 47th …
+## $ end_station_id     &lt;chr&gt; "202480.0", "TA1308000002", "599", "TA1308000002", …
+## $ start_lat          &lt;dbl&gt; 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+## $ start_lng          &lt;dbl&gt; -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+## $ end_lat            &lt;dbl&gt; 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+## $ end_lng            &lt;dbl&gt; -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+## $ user_type          &lt;chr&gt; "member", "member", "casual", "member", "member", "…
+## $ ride_length        &lt;dbl&gt; 10.850000, 8.483333, 13.233333, 8.766667, 15.316667…
+## $ date               &lt;date&gt; 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+## $ month              &lt;chr&gt; "January", "January", "January", "January", "Januar…
+## $ day                &lt;chr&gt; "21", "10", "02", "22", "12", "31", "15", "25", "25…
+## $ year               &lt;chr&gt; "2023", "2023", "2023", "2023", "2023", "2023", "20…
+## $ day_of_week        &lt;chr&gt; "Saturday", "Tuesday", "Monday", "Sunday", "Thursda…
+</code></pre></div></div> <p>Rides made in the year 2023 will be displayed for each user type.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2 %&gt;% 
+  group_by(user_type) %&gt;% 
+  summarise(number_of_rides = n()) %&gt;% 
+  mutate(fraction = number_of_rides / sum(number_of_rides)) %&gt;% 
+  mutate(ymax = cumsum(fraction)) %&gt;%
+  mutate(ymin = c(0, head(ymax, n=-1))) %&gt;% 
+  mutate(label_position = (ymax + ymin)/2) %&gt;% 
+  mutate(label = paste0(user_type,"\n",comma(number_of_rides))) %&gt;%
+  #plot
+  ggplot(aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=user_type))+
+  geom_rect(aes(fill = user_type)) +
+  scale_fill_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
+  scale_color_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
+  labs(title = "Amount of users")+
+  geom_text(x=5.5, aes(y=label_position, label=label, color=user_type),size = 6)+
+  coord_polar(theta="y", clip = "off")+xlim(c(1, 5)) + theme_void() + theme(legend.position = "none")
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/unnamed-chunk-19-1.png" alt=""></p> <p>Descriptive analysis of the <code class="language-plaintext highlighter-rouge">ride_length</code> variable will provide insights and the distribution of ride duration across different user types.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>summary(annual_data_v2$ride_length)
+
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.017   5.567   9.267  11.373  15.267  35.583
+
+annual_data_v2 %&gt;%
+  filter(user_type == "member") %&gt;%  # Filtrar solo los usuarios tipo "casual"
+  pull(ride_length) %&gt;%  # Extraer la columna ride_length
+  summary()  
+
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.017   5.133   8.500  10.546  13.967  35.583
+
+annual_data_v2 %&gt;%
+  filter(user_type == "casual") %&gt;%  # Filtrar solo los usuarios tipo "casual"
+  pull(ride_length) %&gt;%  # Extraer la columna ride_length
+  summary()  
+
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.017   6.733  11.050  13.080  17.917  35.583
+</code></pre></div></div> <p>Compare the two user types</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aggregate(annual_data_v2$ride_length ~ annual_data_v2$user_type, FUN = mean)
+
+##   annual_data_v2$user_type annual_data_v2$ride_length
+## 1                   casual                   13.08008
+## 2                   member                   10.54565
+
+aggregate(annual_data_v2$ride_length ~ annual_data_v2$user_type, FUN = median)
+
+##   annual_data_v2$user_type annual_data_v2$ride_length
+## 1                   casual                      11.05
+## 2                   member                       8.50
+
+aggregate(annual_data_v2$ride_length ~ annual_data_v2$user_type, FUN = max)
+
+##   annual_data_v2$user_type annual_data_v2$ride_length
+## 1                   casual                   35.58333
+## 2                   member                   35.58333
+
+aggregate(annual_data_v2$ride_length ~ annual_data_v2$user_type, FUN = min, )
+
+##   annual_data_v2$user_type annual_data_v2$ride_length
+## 1                   casual                   1.016667
+## 2                   member                   1.016667
+</code></pre></div></div> <p>Convert to ordered factor the column and save the file for further analysis.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2$day_of_week &lt;- ordered(annual_data_v2$day_of_week, levels=c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"))
+annual_data_v2$month &lt;- ordered(annual_data_v2$month, levels=c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"))
+
+write_csv(annual_data_v2, "D:/Proyecto_R/annual_data_v2.csv")
+</code></pre></div></div> <p>It can be observed that the duration of rides is longer for casual users during weekends.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>glimpse(annual_data_v2)
+
+## Rows: 3,920,772
+## Columns: 19
+## $ ride_id            &lt;chr&gt; "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670…
+## $ rideable_type      &lt;chr&gt; "electric_bike", "classic_bike", "electric_bike", "…
+## $ started_at         &lt;dttm&gt; 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-…
+## $ ended_at           &lt;dttm&gt; 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-…
+## $ start_station_name &lt;chr&gt; "Lincoln Ave &amp; Fullerton Ave", "Kimbark Ave &amp; 53rd …
+## $ start_station_id   &lt;chr&gt; "TA1309000058", "TA1309000037", "RP-005", "TA130900…
+## $ end_station_name   &lt;chr&gt; "Hampden Ct &amp; Diversey Ave", "Greenwood Ave &amp; 47th …
+## $ end_station_id     &lt;chr&gt; "202480.0", "TA1308000002", "599", "TA1308000002", …
+## $ start_lat          &lt;dbl&gt; 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 4…
+## $ start_lng          &lt;dbl&gt; -87.64628, -87.59475, -87.69048, -87.59475, -87.594…
+## $ end_lat            &lt;dbl&gt; 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 4…
+## $ end_lng            &lt;dbl&gt; -87.64000, -87.59938, -87.69941, -87.59938, -87.599…
+## $ user_type          &lt;chr&gt; "member", "member", "casual", "member", "member", "…
+## $ ride_length        &lt;dbl&gt; 10.850000, 8.483333, 13.233333, 8.766667, 15.316667…
+## $ date               &lt;date&gt; 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 20…
+## $ month              &lt;ord&gt; January, January, January, January, January, Januar…
+## $ day                &lt;chr&gt; "21", "10", "02", "22", "12", "31", "15", "25", "25…
+## $ year               &lt;chr&gt; "2023", "2023", "2023", "2023", "2023", "2023", "20…
+## $ day_of_week        &lt;ord&gt; Saturday, Tuesday, Monday, Sunday, Thursday, Tuesda…
+
+annual_data_v2 %&gt;%
+  aggregate(ride_length ~ user_type + day_of_week, FUN = mean) %&gt;%
+  ggplot(aes(x = day_of_week, y = ride_length, color = user_type, group = user_type)) +
+  geom_line(linewidth = 1.5) + 
+  geom_point(size = 3) +
+  labs(title = "Average Ride Duration by User Type and Day of the Week", x = "Day of Week", y = "Average Ride Length (min)", color = "User Type") +
+  scale_color_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
+  theme_minimal() 
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Average%20Ride%20Duration%20by%20User%20Type%20and%20Day%20of%20the%20Week-1.png" alt=""></p> <p>This chart allows for easy visualization of how the average ride duration varies between casual users and members throughout the months of the year.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2 %&gt;%
+  aggregate(ride_length ~ user_type + month, FUN = mean) %&gt;%
+  ggplot(aes(x = month, y = ride_length, color = user_type, group = user_type)) +
+  geom_line(linewidth = 1.5) + 
+  geom_point(size = 3) +
+  labs(title = "Average Ride Duration by User Type and Month"
+  , x = "Month", y = "Average Ride Length (min)", color = "User Type") +
+  scale_color_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 45))
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Average%20Ride%20Duration%20by%20User%20Type%20and%20Month-1.png" alt=""></p> <p>Analyze users data by user type, weekday, weekends and holidays The number of rides on federal holidays is calculated using the <code class="language-plaintext highlighter-rouge">cal_us_federal()</code> function, which serves as an example calendar representing the federal holidays in the United States. This calendar is not historically accurate but reflects the currently recognized federal holidays.”</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>holidays_2023 &lt;- cal_events(cal_us_federal(), year = 2023)
+annual_data_v2 %&gt;% 
+  group_by(user_type) %&gt;%
+  inner_join(holidays_2023, by="date") %&gt;% 
+  summarise(number_of_rides = n()) %&gt;% 
+  ggplot(aes(x = user_type, y = number_of_rides, fill = user_type)) +
+  scale_fill_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
+  geom_col(position = "dodge") +
+  geom_text(aes(label = comma(number_of_rides)), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5)+
+  labs(title = "Rides on holidays", x = "User type", y="Number of rides", fill = "User type")  +
+  scale_y_continuous(labels = comma)
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Rides%20on%20holidays-1.png" alt=""></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2 %&gt;% 
+  filter(day_of_week %in% c("Saturday", "Sunday")) %&gt;% 
+  group_by(user_type) %&gt;% 
+  summarise(number_of_rides = n()) %&gt;%
+  ggplot(aes(x = user_type, y = number_of_rides, fill = user_type)) +
+  scale_fill_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
+  geom_col(position = "dodge") +
+  geom_text(aes(label = comma(number_of_rides)), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5)+
+  labs(title = "Rides on weekends", x = "User type", y="Number of rides", fill = "User type")  +
+  scale_y_continuous(labels = comma)
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Rides%20on%20weekends-1.png" alt=""></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2 %&gt;% 
+  filter(day_of_week %in% c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")) %&gt;% 
+  group_by(user_type) %&gt;% 
+  summarise(number_of_rides = n()) %&gt;%
+  ggplot(aes(x = user_type, y = number_of_rides, fill = user_type)) +
+  scale_fill_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
+  geom_col(position = "dodge") +
+  geom_text(aes(label = comma(number_of_rides)), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5)+
+  labs(title = "Rides on weekdays", x = "User type", y="Number of rides", fill = "User type")  +
+  scale_y_continuous(labels = comma)
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Rides%20on%20weekdays-1.png" alt=""></p> <p>This creates a seasons data frame with columns representing the start and end months for each season, the name of each season, and a custom color for each. These values will be used later to mark the different seasons on the plot.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#data frame for later use in the plot
+seasons &lt;- data.frame(
+  start = c(1, 4, 7, 10),  # Srart month for each season
+  end = c(3, 6, 9, 12),    # End month for each season
+  season = c("Winter", "Spring", "Summer", "Autumn"),
+  color = c("#0071bc", "#2e8540", "#981b1e", "#aeb0b5")  #color for each season
+)
+</code></pre></div></div> <p>These two blocks of code find the months with the maximum and minimum number of rides for each user_type. The max_points and min_points data frames store these extreme values, which will later be used to add text annotations to the plot.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Find the maximum points
+max_points &lt;- annual_data_v2 %&gt;%
+  group_by(user_type, month) %&gt;%
+  summarise(number_of_rides = n()) %&gt;% 
+  filter(number_of_rides == max(number_of_rides))
+# Find the minimum points
+min_points &lt;- annual_data_v2 %&gt;%
+  group_by(user_type, month) %&gt;%
+  summarise(number_of_rides = n()) %&gt;%
+  filter(number_of_rides == min(number_of_rides))
+</code></pre></div></div> <p>This code creates a comprehensive plot, comparing the monthly number of rides for casual and member users, with annotations for seasonal changes and the maximum and minimum values.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2 %&gt;% 
+  mutate(weekday = wday(started_at, label = TRUE, week_start = 1, locale = "LC_TIME")) %&gt;%
+  group_by(user_type, month) %&gt;%
+  summarise(number_of_rides = n()) %&gt;%
+  arrange(user_type, month) %&gt;% 
+  #plot
+  ggplot(aes(x = month, y = number_of_rides, color = user_type, group = user_type)) +
+  geom_rect(data = seasons, aes(xmin = start - 0.5, xmax = end + 0.5, ymin = -Inf, ymax = Inf, fill = season), inherit.aes = FALSE, alpha = 0.2) +
+  geom_line(size = 1.5) + 
+  geom_point(size = 3) +
+  geom_text(data = max_points, aes(label = paste("max:", comma(number_of_rides))), vjust = -.28, hjust = -.2, color = "#08415c") + # Añadir etiquetas en los puntos máximos
+  geom_text(data = min_points, aes(label = paste("min:", comma(number_of_rides))), vjust = -1, hjust = 0, color = "#08415c") + # Añadir etiquetas en los puntos máximos
+  scale_fill_manual(values = seasons$color) +  # Usar colores definidos
+  labs(title = "Monthly Evolution of the Number of Rides by User Type and Season",
+       x = "Month", y = "Number of Rides", color = "User Type", fill = "Season") +
+  scale_color_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
+  scale_y_continuous(labels = comma) +
+  theme_minimal() +
+  theme(panel.background = element_rect(fill = NA, color = NA)) + 
+  theme(axis.text.x = element_text(angle = 45))
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Monthly%20Evolution%20of%20the%20Number%20of%20Rides%20by%20User%20Type%20and%20Season-1.png" alt=""></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2 %&gt;%
+  group_by(user_type, rideable_type) %&gt;%
+  summarise(number_of_rides = n(), .groups = 'drop') %&gt;%
+  complete(user_type, rideable_type, fill = list(number_of_rides = 0)) %&gt;%
+  #plot
+  ggplot(aes(x = rideable_type, y = number_of_rides, fill = user_type)) +
+  scale_fill_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
+  geom_col(position = "dodge") +
+  geom_text(aes(label = comma(number_of_rides)), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5) +
+  labs(title = "Number of Rides by Transport Type and User Type",
+       x = "Tipo de Transporte",
+       y = "Transport Type", fill = "User type") + 
+  scale_x_discrete(  labels=c("Classic bike", "Docked bike", "Electric bike"))+
+  scale_y_continuous(labels = comma) +
+  theme(panel.background = element_rect(fill = "#F5F5F5")) 
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Number%20of%20Rides%20by%20Transport%20Type%20and%20User%20Type-1.png" alt=""></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2 %&gt;%
+  filter(user_type == "casual") %&gt;% 
+  group_by(start_station_name) %&gt;%
+  summarise(number_of_rides = n())%&gt;%       
+  arrange(desc(number_of_rides)) %&gt;% 
+  slice_max(order_by=number_of_rides,n = 10) %&gt;% 
+  ggplot(aes(x=reorder(start_station_name, number_of_rides), y=number_of_rides))+
+  labs(title="Top 10 Start Stations for Casual Users by Number of Rides", x="Station name", y = "Number of rides")+
+  geom_bar(stat = "identity",fill = "#4DB6AC") +
+  geom_text(aes(label = comma(number_of_rides)), hjust=1.2, vjust=.1) +
+  scale_y_continuous(labels = comma)+
+  coord_flip()
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Top%2010%20start%20stations%20for%20Casual%20Users%20by%20Number%20of%20Rides-1.png" alt=""></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2 %&gt;%
+  filter(user_type == "casual") %&gt;% 
+  group_by(end_station_name) %&gt;%
+  summarise(number_of_rides = n())%&gt;%       
+  arrange(desc(number_of_rides)) %&gt;% 
+  slice_max(order_by=number_of_rides,n = 10) %&gt;% 
+  ggplot(aes(x=reorder(end_station_name, number_of_rides), y=number_of_rides))+
+  labs(title="Top 10 end stations for Casual Users by Number of Rides", x="Station name", y = "Number of rides")+
+  geom_bar(stat = "identity",fill = "#4DB6AC") +
+  geom_text(aes(label = comma(number_of_rides)), hjust=1.2, vjust=.1) +
+  scale_y_continuous(labels = comma)+
+  coord_flip()
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Top%2010%20end%20stations%20for%20Casual%20Users%20by%20Number%20of%20Rides-1.png" alt=""></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2 %&gt;%
+  filter(user_type == "member") %&gt;% 
+  group_by(start_station_name) %&gt;%
+  summarise(number_of_rides = n())%&gt;%       
+  arrange(desc(number_of_rides)) %&gt;% 
+  slice_max(order_by=number_of_rides,n = 10) %&gt;% 
+  ggplot(aes(x=reorder(start_station_name, number_of_rides), y=number_of_rides))+
+  labs(title="Top 10 Start Stations for Member Users by Number of Rides", x="Station name", y = "Number of rides")+
+  geom_bar(stat = "identity",fill = "#FFAB40") +
+  geom_text(aes(label = comma(number_of_rides)), hjust=1.2, vjust=.1) +
+  scale_y_continuous(labels = comma)+
+  coord_flip()
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Top%2010%20Start%20Stations%20for%20Member%20Users%20by%20Number%20of%20Rides-1.png" alt=""></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>annual_data_v2 %&gt;%
+  filter(user_type == "member") %&gt;% 
+  group_by(end_station_name) %&gt;%
+  summarise(number_of_rides = n())%&gt;%       
+  arrange(desc(number_of_rides)) %&gt;% 
+  slice_max(order_by=number_of_rides,n = 10) %&gt;% 
+  ggplot(aes(x=reorder(end_station_name, number_of_rides), y=number_of_rides))+
+  labs(title="Top 10 end stations for Member Users by Number of Rides", x="Station name", y = "Number of rides")+
+  geom_bar(stat = "identity",fill = "#FFAB40") +
+  geom_text(aes(label = comma(number_of_rides)), hjust=1.2, vjust=.1) +
+  scale_y_continuous(labels = comma)+
+  coord_flip()
+</code></pre></div></div> <p><img src="Practical_case_1_files/figure-markdown_strict/Top%2010%20end%20stations%20for%20Member%20Users%20by%20Number%20of%20Rides-1.png" alt=""></p> <p><strong>Thank you so much for taking the time to check out my project!</strong></p> <h1 id="references">References</h1> <ul> <li> <p>Piasa, N. (2023, August 12). <a href="https://medium.com/@nattayapiasa/google-data-analytics-capstone-cyclistic-bike-share-python-5bd42c98f5ad" rel="external nofollow noopener" target="_blank">Google Data Analytics Capstone: Cyclistic Bike-Share (Python)</a>. <em>Medium</em>.</p> </li> <li> <p>Data con Steven. (2024, January 3). <a href="https://www.youtube.com/watch?v=Jgv7EwEECFg" rel="external nofollow noopener" target="_blank">Google Data Analytics | Proyecto Final | Caso Bellabeat [Video]. YouTube.</a></p> </li> <li> <p><a href="https://www.statology.org" rel="external nofollow noopener" target="_blank">https://www.statology.org</a></p> </li> <li> <p><a href="https://datavizcatalogue.com/" class="uri" rel="external nofollow noopener" target="_blank">https://datavizcatalogue.com</a></p> </li> </ul> <h2 id="tiktok-profiles-with-nice-data-content">TikTok profiles with nice data content</h2> <ul> <li> <p>@<a href="https://www.tiktok.com/@quimicaendata" rel="external nofollow noopener" target="_blank">quimicaendata</a></p> </li> <li> <p>@<a href="https://www.tiktok.com/@armandodatos" rel="external nofollow noopener" target="_blank">armandodatos</a></p> </li> <li> <p>@<a href="https://www.tiktok.com/@mai_analytics" rel="external nofollow noopener" target="_blank">mai_analytics</a></p> </li> <li> <p>@<a href="https://www.tiktok.com/@mkfnx" rel="external nofollow noopener" target="_blank">mkfnx</a></p> </li> </ul> </article> <h2>References</h2> <div class="publications"> </div> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2025 Daniel Herrera. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script> <script defer src="/assets/js/copy_code.js?12775fdf7f95e901d7119054556e495f" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/js/search/ninja-keys.min.js?a3446f084dcaecc5f75aa1757d087dcf"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/js/search-setup.js?6c304f7b1992d4b60f7a07956e52f04a"></script> <script src="/assets/js/search-data.js"></script> <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script> </body> </html>

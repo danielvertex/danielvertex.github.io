@@ -3,7 +3,7 @@ layout: post
 title: Cinco pasos para hacer un análisis estadístico.
 date: 2025-03-03 16:40:16
 description: march & april, looking forward to summer
-tags: formatting links
+tags: python
 categories: sample-posts
 giscus_comments: false
 related_posts: false

@@ -127,6 +127,11 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
+            },},{id: "projects-ticker-information",
+          title: 'TICKER INFORMATION',
+          description: "CS50p FINALPROJECT",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/TICKER%20INFORMATION/";
             },},{
         id: 'social-email',
         title: 'email',

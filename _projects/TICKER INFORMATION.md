@@ -4,7 +4,7 @@ title: TICKER INFORMATION
 description: CS50p FINALPROJECT
 img: assets/img/ticker_price.jpg
 importance: 4
-category: Python
+category: python 
 ---
 
 # TICKER INFORMATION

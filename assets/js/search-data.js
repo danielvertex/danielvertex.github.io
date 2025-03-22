@@ -82,6 +82,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
+            },},{id: "projects-google-data-analytics-capstone-project",
+          title: 'Google Data Analytics Capstone Project',
+          description: "with background image",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/Practical_case_1/";
             },},{id: "projects-ticker-information",
           title: 'TICKER INFORMATION',
           description: "CS50p FINALPROJECT",

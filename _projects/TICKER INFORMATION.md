@@ -7,7 +7,6 @@ importance: 4
 category: Python
 ---
 
-
 # TICKER INFORMATION
 #### Video Demo: [here](https://youtu.be/z2xsYft5r74)
 #### Description: This program can graphically provide a 30-day period of adjusted closing price of two stocks as a png image and textual ticker information.

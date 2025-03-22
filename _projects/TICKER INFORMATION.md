@@ -2,7 +2,7 @@
 layout: page
 title: TICKER INFORMATION
 description: CS50p FINALPROJECT
-img: assets/img/ticker_price.jpg
+img: assets/img/ticker_price.png
 importance: 4
 category: Python
 ---

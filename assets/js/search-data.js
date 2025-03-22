@@ -127,11 +127,6 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
-            },},{id: "projects-google-data-analytics-capstone-project",
-          title: 'Google Data Analytics Capstone Project',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/Practical_case_1/";
             },},{
         id: 'social-email',
         title: 'email',

@@ -105,12 +105,12 @@ members and casual riders differ in their use of Cyclistic’s bikes?**
 
 You will create a report with the following deliverables:
 
--   A clear instruction of the business task
--   A description of all data sources used
--   Documentation of all data cleaning and manipulations
--   A summary of your analysis
--   Supporting visualizations and key findings
--   The three most important recommendations based on your analysis
+- A clear instruction of the business task
+- A description of all data sources used
+- Documentation of all data cleaning and manipulations
+- A summary of your analysis
+- Supporting visualizations and key findings
+- The three most important recommendations based on your analysis
 
 This project will follow the steps of the data analysis process: ask,
 prepare, process, analyze, share, and act.
@@ -153,15 +153,15 @@ RStudio create a powerful combination preferred by analysts and data
 scientists.
 
 The data for the year comes in 12 separate CSV files, one for each
-month. Once downloaded, the compare\_df\_cols\_same() function from the
+month. Once downloaded, the compare_df_cols_same() function from the
 janitor package was used to verify that all 12 datasets were suitable
 for merging.
 
 We start with loading the packages we will use.
 
 ```R
-    library(tidyverse)  
-    library(lubridate)  
+    library(tidyverse)
+    library(lubridate)
     library(ggplot2)
     library(dplyr)
     library(janitor)
@@ -192,7 +192,6 @@ We start with loading the packages we will use.
 
     setwd("D:/Proyecto_R")
 ```
-
 
 ## Collect data
 
@@ -270,6 +269,7 @@ Columns were renamed to make them understandable.
 ```R
     annual_data <- rename(annual_data, user_type = member_casual)
 ```
+
 ## CLEAN
 
 The duration of each ride in minutes will be calculated and stored in
@@ -282,7 +282,7 @@ direct numerical operations.
     annual_data$ride_length <- difftime(annual_data$ended_at, annual_data$started_at, units = "mins")
 ```
 
-It was verified that the user\_type column only had two possible values,
+It was verified that the user_type column only had two possible values,
 and it was checked for duplicates and empty IDs.
 
 ```R
@@ -342,11 +342,11 @@ The language will be changed to English, and a column will be added for
 ride length.
 
 ```R
-    annual_data <-  annual_data %>% 
+    annual_data <-  annual_data %>%
       mutate(day_of_week = recode(day_of_week
                                   ,"lunes" = "Monday"
                                   ,"martes" = "Tuesday"
-                                  ,"miércoles" = "Wednesday" 
+                                  ,"miércoles" = "Wednesday"
                                   ,"jueves" = "Thursday"
                                   ,"viernes" = "Friday"
                                   ,"sábado" = "Saturday"
@@ -431,12 +431,12 @@ values.
 
     ## [1] 1269
 
-    annual_data_v2 %>% 
+    annual_data_v2 %>%
       filter(ride_length<=0 | ride_length  > 1440)
 
     ## # A tibble: 702 × 19
-    ##    ride_id          rideable_type started_at          ended_at           
-    ##    <chr>            <chr>         <dttm>              <dttm>             
+    ##    ride_id          rideable_type started_at          ended_at
+    ##    <chr>            <chr>         <dttm>              <dttm>
     ##  1 F4F4A74BF1FB016D classic_bike  2023-01-06 15:59:56 2023-01-07 16:41:17
     ##  2 3F5B7E5AD8A6FE18 electric_bike 2023-01-17 08:31:49 2023-01-17 08:31:49
     ##  3 5394CACAFE68B950 electric_bike 2023-01-05 09:10:39 2023-01-05 09:10:39
@@ -454,8 +454,8 @@ values.
     ## #   ride_length <dbl>, date <date>, month <chr>, day <chr>, year <chr>,
     ## #   day_of_week <chr>
 
-    #applying the result 
-    annual_data_v2 <- annual_data_v2 %>% 
+    #applying the result
+    annual_data_v2 <- annual_data_v2 %>%
       filter(!(ride_length<=1 | ride_length  > 1440))
 
     #search for NA values in ride_length column
@@ -489,48 +489,48 @@ values.
 
     summary(annual_data_v2)
 
-    ##    ride_id          rideable_type        started_at                    
-    ##  Length:4243193     Length:4243193     Min.   :2023-01-01 00:02:06.00  
-    ##  Class :character   Class :character   1st Qu.:2023-05-20 18:06:14.00  
-    ##  Mode  :character   Mode  :character   Median :2023-07-20 18:29:02.00  
-    ##                                        Mean   :2023-07-16 01:55:18.68  
-    ##                                        3rd Qu.:2023-09-16 19:11:08.00  
-    ##                                        Max.   :2023-12-31 23:58:55.00  
-    ##     ended_at                     start_station_name start_station_id  
-    ##  Min.   :2023-01-01 00:07:23.0   Length:4243193     Length:4243193    
-    ##  1st Qu.:2023-05-20 18:28:00.0   Class :character   Class :character  
-    ##  Median :2023-07-20 18:46:38.0   Mode  :character   Mode  :character  
-    ##  Mean   :2023-07-16 02:11:31.9                                        
-    ##  3rd Qu.:2023-09-16 19:27:30.0                                        
-    ##  Max.   :2024-01-01 14:20:23.0                                        
-    ##  end_station_name   end_station_id       start_lat       start_lng     
-    ##  Length:4243193     Length:4243193     Min.   :41.65   Min.   :-87.84  
-    ##  Class :character   Class :character   1st Qu.:41.88   1st Qu.:-87.66  
-    ##  Mode  :character   Mode  :character   Median :41.90   Median :-87.64  
-    ##                                        Mean   :41.90   Mean   :-87.64  
-    ##                                        3rd Qu.:41.93   3rd Qu.:-87.63  
-    ##                                        Max.   :42.06   Max.   :-87.53  
-    ##     end_lat         end_lng        user_type          ride_length      
-    ##  Min.   : 0.00   Min.   :-87.84   Length:4243193     Min.   :   1.017  
-    ##  1st Qu.:41.88   1st Qu.:-87.66   Class :character   1st Qu.:   5.833  
-    ##  Median :41.90   Median :-87.64   Mode  :character   Median :  10.017  
-    ##  Mean   :41.90   Mean   :-87.64                      Mean   :  16.220  
-    ##  3rd Qu.:41.93   3rd Qu.:-87.63                      3rd Qu.:  17.733  
-    ##  Max.   :42.06   Max.   :  0.00                      Max.   :1439.867  
-    ##       date               month               day                year          
-    ##  Min.   :2023-01-01   Length:4243193     Length:4243193     Length:4243193    
-    ##  1st Qu.:2023-05-20   Class :character   Class :character   Class :character  
-    ##  Median :2023-07-20   Mode  :character   Mode  :character   Mode  :character  
-    ##  Mean   :2023-07-15                                                           
-    ##  3rd Qu.:2023-09-16                                                           
-    ##  Max.   :2023-12-31                                                           
-    ##  day_of_week       
-    ##  Length:4243193    
-    ##  Class :character  
-    ##  Mode  :character  
-    ##                    
-    ##                    
-    ## 
+    ##    ride_id          rideable_type        started_at
+    ##  Length:4243193     Length:4243193     Min.   :2023-01-01 00:02:06.00
+    ##  Class :character   Class :character   1st Qu.:2023-05-20 18:06:14.00
+    ##  Mode  :character   Mode  :character   Median :2023-07-20 18:29:02.00
+    ##                                        Mean   :2023-07-16 01:55:18.68
+    ##                                        3rd Qu.:2023-09-16 19:11:08.00
+    ##                                        Max.   :2023-12-31 23:58:55.00
+    ##     ended_at                     start_station_name start_station_id
+    ##  Min.   :2023-01-01 00:07:23.0   Length:4243193     Length:4243193
+    ##  1st Qu.:2023-05-20 18:28:00.0   Class :character   Class :character
+    ##  Median :2023-07-20 18:46:38.0   Mode  :character   Mode  :character
+    ##  Mean   :2023-07-16 02:11:31.9
+    ##  3rd Qu.:2023-09-16 19:27:30.0
+    ##  Max.   :2024-01-01 14:20:23.0
+    ##  end_station_name   end_station_id       start_lat       start_lng
+    ##  Length:4243193     Length:4243193     Min.   :41.65   Min.   :-87.84
+    ##  Class :character   Class :character   1st Qu.:41.88   1st Qu.:-87.66
+    ##  Mode  :character   Mode  :character   Median :41.90   Median :-87.64
+    ##                                        Mean   :41.90   Mean   :-87.64
+    ##                                        3rd Qu.:41.93   3rd Qu.:-87.63
+    ##                                        Max.   :42.06   Max.   :-87.53
+    ##     end_lat         end_lng        user_type          ride_length
+    ##  Min.   : 0.00   Min.   :-87.84   Length:4243193     Min.   :   1.017
+    ##  1st Qu.:41.88   1st Qu.:-87.66   Class :character   1st Qu.:   5.833
+    ##  Median :41.90   Median :-87.64   Mode  :character   Median :  10.017
+    ##  Mean   :41.90   Mean   :-87.64                      Mean   :  16.220
+    ##  3rd Qu.:41.93   3rd Qu.:-87.63                      3rd Qu.:  17.733
+    ##  Max.   :42.06   Max.   :  0.00                      Max.   :1439.867
+    ##       date               month               day                year
+    ##  Min.   :2023-01-01   Length:4243193     Length:4243193     Length:4243193
+    ##  1st Qu.:2023-05-20   Class :character   Class :character   Class :character
+    ##  Median :2023-07-20   Mode  :character   Mode  :character   Mode  :character
+    ##  Mean   :2023-07-15
+    ##  3rd Qu.:2023-09-16
+    ##  Max.   :2023-12-31
+    ##  day_of_week
+    ##  Length:4243193
+    ##  Class :character
+    ##  Mode  :character
+    ##
+    ##
+    ##
 ```
 
 # ANALYSIS
@@ -586,17 +586,17 @@ Convert numeric month representation to month names
 
     ## [1] "character"
 
-    annual_data_v2 <-  annual_data_v2 %>% 
+    annual_data_v2 <-  annual_data_v2 %>%
       mutate(month = recode(month
                                   ,"01" = "January"
                                   ,"02" = "February"
-                                  ,"03" = "March" 
+                                  ,"03" = "March"
                                   ,"04" = "April"
                                   ,"05" = "May"
                                   ,"06" = "June"
                                   ,"07" = "July"
                                   ,"08" = "August"
-                                  ,"09" = "September" 
+                                  ,"09" = "September"
                                   ,"10" = "October"
                                   ,"11" = "November"
                                   ,"12" = "December"))
@@ -629,13 +629,13 @@ Convert numeric month representation to month names
 Rides made in the year 2023 will be displayed for each user type.
 
 ```R
-    annual_data_v2 %>% 
-      group_by(user_type) %>% 
-      summarise(number_of_rides = n()) %>% 
-      mutate(fraction = number_of_rides / sum(number_of_rides)) %>% 
+    annual_data_v2 %>%
+      group_by(user_type) %>%
+      summarise(number_of_rides = n()) %>%
+      mutate(fraction = number_of_rides / sum(number_of_rides)) %>%
       mutate(ymax = cumsum(fraction)) %>%
-      mutate(ymin = c(0, head(ymax, n=-1))) %>% 
-      mutate(label_position = (ymax + ymin)/2) %>% 
+      mutate(ymin = c(0, head(ymax, n=-1))) %>%
+      mutate(label_position = (ymax + ymin)/2) %>%
       mutate(label = paste0(user_type,"\n",comma(number_of_rides))) %>%
       #plot
       ggplot(aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=user_type))+
@@ -659,23 +659,23 @@ and the distribution of ride duration across different user types.
 ```R
     summary(annual_data_v2$ride_length)
 
-    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
     ##   1.017   5.567   9.267  11.373  15.267  35.583
 
     annual_data_v2 %>%
       filter(user_type == "member") %>%  # Filtrar solo los usuarios tipo "casual"
       pull(ride_length) %>%  # Extraer la columna ride_length
-      summary()  
+      summary()
 
-    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
     ##   1.017   5.133   8.500  10.546  13.967  35.583
 
     annual_data_v2 %>%
       filter(user_type == "casual") %>%  # Filtrar solo los usuarios tipo "casual"
       pull(ride_length) %>%  # Extraer la columna ride_length
-      summary()  
+      summary()
 
-    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
     ##   1.017   6.733  11.050  13.080  17.917  35.583
 ```
 
@@ -745,15 +745,16 @@ during weekends.
     ## $ year               <chr> "2023", "2023", "2023", "2023", "2023", "2023", "20…
     ## $ day_of_week        <ord> Saturday, Tuesday, Monday, Sunday, Thursday, Tuesda…
 ```
+
 ```R
     annual_data_v2 %>%
       aggregate(ride_length ~ user_type + day_of_week, FUN = mean) %>%
       ggplot(aes(x = day_of_week, y = ride_length, color = user_type, group = user_type)) +
-      geom_line(linewidth = 1.5) + 
+      geom_line(linewidth = 1.5) +
       geom_point(size = 3) +
       labs(title = "Average Ride Duration by User Type and Day of the Week", x = "Day of Week", y = "Average Ride Length (min)", color = "User Type") +
       scale_color_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
-      theme_minimal() 
+      theme_minimal()
 ```
 
 <div class="row">
@@ -770,12 +771,12 @@ of the year.
     annual_data_v2 %>%
       aggregate(ride_length ~ user_type + month, FUN = mean) %>%
       ggplot(aes(x = month, y = ride_length, color = user_type, group = user_type)) +
-      geom_line(linewidth = 1.5) + 
+      geom_line(linewidth = 1.5) +
       geom_point(size = 3) +
       labs(title = "Average Ride Duration by User Type and Month"
       , x = "Month", y = "Average Ride Length (min)", color = "User Type") +
       scale_color_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
-      theme_minimal() + 
+      theme_minimal() +
       theme(axis.text.x = element_text(angle = 45))
 ```
 
@@ -794,15 +795,15 @@ holidays.”
 
 ```R
     holidays_2023 <- cal_events(cal_us_federal(), year = 2023)
-    annual_data_v2 %>% 
+    annual_data_v2 %>%
       group_by(user_type) %>%
-      inner_join(holidays_2023, by="date") %>% 
-      summarise(number_of_rides = n()) %>% 
+      inner_join(holidays_2023, by="date") %>%
+      summarise(number_of_rides = n()) %>%
       ggplot(aes(x = user_type, y = number_of_rides, fill = user_type)) +
       scale_fill_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
       geom_col(position = "dodge") +
-      geom_text(aes(label = comma(number_of_rides)), 
-                position = position_dodge(width = 0.9), 
+      geom_text(aes(label = comma(number_of_rides)),
+                position = position_dodge(width = 0.9),
                 vjust = -0.5)+
       labs(title = "Rides on holidays", x = "User type", y="Number of rides", fill = "User type")  +
       scale_y_continuous(labels = comma)
@@ -815,15 +816,15 @@ holidays.”
 </div>
 
 ```R
-    annual_data_v2 %>% 
-      filter(day_of_week %in% c("Saturday", "Sunday")) %>% 
-      group_by(user_type) %>% 
+    annual_data_v2 %>%
+      filter(day_of_week %in% c("Saturday", "Sunday")) %>%
+      group_by(user_type) %>%
       summarise(number_of_rides = n()) %>%
       ggplot(aes(x = user_type, y = number_of_rides, fill = user_type)) +
       scale_fill_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
       geom_col(position = "dodge") +
-      geom_text(aes(label = comma(number_of_rides)), 
-                position = position_dodge(width = 0.9), 
+      geom_text(aes(label = comma(number_of_rides)),
+                position = position_dodge(width = 0.9),
                 vjust = -0.5)+
       labs(title = "Rides on weekends", x = "User type", y="Number of rides", fill = "User type")  +
       scale_y_continuous(labels = comma)
@@ -836,15 +837,15 @@ holidays.”
 </div>
 
 ```R
-    annual_data_v2 %>% 
-      filter(day_of_week %in% c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")) %>% 
-      group_by(user_type) %>% 
+    annual_data_v2 %>%
+      filter(day_of_week %in% c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")) %>%
+      group_by(user_type) %>%
       summarise(number_of_rides = n()) %>%
       ggplot(aes(x = user_type, y = number_of_rides, fill = user_type)) +
       scale_fill_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
       geom_col(position = "dodge") +
-      geom_text(aes(label = comma(number_of_rides)), 
-                position = position_dodge(width = 0.9), 
+      geom_text(aes(label = comma(number_of_rides)),
+                position = position_dodge(width = 0.9),
                 vjust = -0.5)+
       labs(title = "Rides on weekdays", x = "User type", y="Number of rides", fill = "User type")  +
       scale_y_continuous(labels = comma)
@@ -872,7 +873,7 @@ seasons on the plot.
 ```
 
 These two blocks of code find the months with the maximum and minimum
-number of rides for each user\_type. The max\_points and min\_points
+number of rides for each user_type. The max_points and min_points
 data frames store these extreme values, which will later be used to add
 text annotations to the plot.
 
@@ -880,7 +881,7 @@ text annotations to the plot.
     # Find the maximum points
     max_points <- annual_data_v2 %>%
       group_by(user_type, month) %>%
-      summarise(number_of_rides = n()) %>% 
+      summarise(number_of_rides = n()) %>%
       filter(number_of_rides == max(number_of_rides))
     # Find the minimum points
     min_points <- annual_data_v2 %>%
@@ -894,15 +895,15 @@ rides for casual and member users, with annotations for seasonal changes
 and the maximum and minimum values.
 
 ```R
-    annual_data_v2 %>% 
+    annual_data_v2 %>%
       mutate(weekday = wday(started_at, label = TRUE, week_start = 1, locale = "LC_TIME")) %>%
       group_by(user_type, month) %>%
       summarise(number_of_rides = n()) %>%
-      arrange(user_type, month) %>% 
+      arrange(user_type, month) %>%
       #plot
       ggplot(aes(x = month, y = number_of_rides, color = user_type, group = user_type)) +
       geom_rect(data = seasons, aes(xmin = start - 0.5, xmax = end + 0.5, ymin = -Inf, ymax = Inf, fill = season), inherit.aes = FALSE, alpha = 0.2) +
-      geom_line(size = 1.5) + 
+      geom_line(size = 1.5) +
       geom_point(size = 3) +
       geom_text(data = max_points, aes(label = paste("max:", comma(number_of_rides))), vjust = -.28, hjust = -.2, color = "#08415c") + # Añadir etiquetas en los puntos máximos
       geom_text(data = min_points, aes(label = paste("min:", comma(number_of_rides))), vjust = -1, hjust = 0, color = "#08415c") + # Añadir etiquetas en los puntos máximos
@@ -912,7 +913,7 @@ and the maximum and minimum values.
       scale_color_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
       scale_y_continuous(labels = comma) +
       theme_minimal() +
-      theme(panel.background = element_rect(fill = NA, color = NA)) + 
+      theme(panel.background = element_rect(fill = NA, color = NA)) +
       theme(axis.text.x = element_text(angle = 45))
 ```
 
@@ -931,29 +932,30 @@ and the maximum and minimum values.
       ggplot(aes(x = rideable_type, y = number_of_rides, fill = user_type)) +
       scale_fill_manual(values = c("casual" = "#4DB6AC", "member" = "#FFAB40")) +
       geom_col(position = "dodge") +
-      geom_text(aes(label = comma(number_of_rides)), 
-                position = position_dodge(width = 0.9), 
+      geom_text(aes(label = comma(number_of_rides)),
+                position = position_dodge(width = 0.9),
                 vjust = -0.5) +
       labs(title = "Number of Rides by Transport Type and User Type",
            x = "Tipo de Transporte",
-           y = "Transport Type", fill = "User type") + 
+           y = "Transport Type", fill = "User type") +
       scale_x_discrete(  labels=c("Classic bike", "Docked bike", "Electric bike"))+
       scale_y_continuous(labels = comma) +
-      theme(panel.background = element_rect(fill = "#F5F5F5")) 
+      theme(panel.background = element_rect(fill = "#F5F5F5"))
 ```
 
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/Number of Rides by Transport Type and User Type-1.png" title="Number of Rides by Transport Type and User Type" class="img-fluid rounded z-depth-1" %}
     </div>
+
 </div>
 
 ```R
     annual_data_v2 %>%
-      filter(user_type == "casual") %>% 
+      filter(user_type == "casual") %>%
       group_by(start_station_name) %>%
-      summarise(number_of_rides = n())%>%       
-      arrange(desc(number_of_rides)) %>% 
-      slice_max(order_by=number_of_rides,n = 10) %>% 
+      summarise(number_of_rides = n())%>%
+      arrange(desc(number_of_rides)) %>%
+      slice_max(order_by=number_of_rides,n = 10) %>%
       ggplot(aes(x=reorder(start_station_name, number_of_rides), y=number_of_rides))+
       labs(title="Top 10 Start Stations for Casual Users by Number of Rides", x="Station name", y = "Number of rides")+
       geom_bar(stat = "identity",fill = "#4DB6AC") +
@@ -970,11 +972,11 @@ and the maximum and minimum values.
 
 ```R
     annual_data_v2 %>%
-      filter(user_type == "casual") %>% 
+      filter(user_type == "casual") %>%
       group_by(end_station_name) %>%
-      summarise(number_of_rides = n())%>%       
-      arrange(desc(number_of_rides)) %>% 
-      slice_max(order_by=number_of_rides,n = 10) %>% 
+      summarise(number_of_rides = n())%>%
+      arrange(desc(number_of_rides)) %>%
+      slice_max(order_by=number_of_rides,n = 10) %>%
       ggplot(aes(x=reorder(end_station_name, number_of_rides), y=number_of_rides))+
       labs(title="Top 10 end stations for Casual Users by Number of Rides", x="Station name", y = "Number of rides")+
       geom_bar(stat = "identity",fill = "#4DB6AC") +
@@ -991,11 +993,11 @@ and the maximum and minimum values.
 
 ```R
     annual_data_v2 %>%
-      filter(user_type == "member") %>% 
+      filter(user_type == "member") %>%
       group_by(start_station_name) %>%
-      summarise(number_of_rides = n())%>%       
-      arrange(desc(number_of_rides)) %>% 
-      slice_max(order_by=number_of_rides,n = 10) %>% 
+      summarise(number_of_rides = n())%>%
+      arrange(desc(number_of_rides)) %>%
+      slice_max(order_by=number_of_rides,n = 10) %>%
       ggplot(aes(x=reorder(start_station_name, number_of_rides), y=number_of_rides))+
       labs(title="Top 10 Start Stations for Member Users by Number of Rides", x="Station name", y = "Number of rides")+
       geom_bar(stat = "identity",fill = "#FFAB40") +
@@ -1012,11 +1014,11 @@ and the maximum and minimum values.
 
 ```R
     annual_data_v2 %>%
-      filter(user_type == "member") %>% 
+      filter(user_type == "member") %>%
       group_by(end_station_name) %>%
-      summarise(number_of_rides = n())%>%       
-      arrange(desc(number_of_rides)) %>% 
-      slice_max(order_by=number_of_rides,n = 10) %>% 
+      summarise(number_of_rides = n())%>%
+      arrange(desc(number_of_rides)) %>%
+      slice_max(order_by=number_of_rides,n = 10) %>%
       ggplot(aes(x=reorder(end_station_name, number_of_rides), y=number_of_rides))+
       labs(title="Top 10 end stations for Member Users by Number of Rides", x="Station name", y = "Number of rides")+
       geom_bar(stat = "identity",fill = "#FFAB40") +
@@ -1024,6 +1026,7 @@ and the maximum and minimum values.
       scale_y_continuous(labels = comma)+
       coord_flip()
 ```
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/Top 10 end stations for Member Users by Number of Rides-1.png" title="Top 10 end stations for Member Users by Number of Rides-1" class="img-fluid rounded z-depth-1" %}
@@ -1034,26 +1037,26 @@ and the maximum and minimum values.
 
 # References
 
--   Piasa, N. (2023, August 12). [Google Data Analytics Capstone:
-    Cyclistic Bike-Share
-    (Python)](https://medium.com/@nattayapiasa/google-data-analytics-capstone-cyclistic-bike-share-python-5bd42c98f5ad).
-    *Medium*.
+- Piasa, N. (2023, August 12). [Google Data Analytics Capstone:
+  Cyclistic Bike-Share
+  (Python)](https://medium.com/@nattayapiasa/google-data-analytics-capstone-cyclistic-bike-share-python-5bd42c98f5ad).
+  _Medium_.
 
--   Data con Steven. (2024, January 3). [Google Data Analytics |
-    Proyecto Final | Caso Bellabeat \[Video\].
-    YouTube.](https://www.youtube.com/watch?v=Jgv7EwEECFg)
+- Data con Steven. (2024, January 3). [Google Data Analytics |
+  Proyecto Final | Caso Bellabeat \[Video\].
+  YouTube.](https://www.youtube.com/watch?v=Jgv7EwEECFg)
 
--   <https://www.statology.org>
+- <https://www.statology.org>
 
--   <a href="https://datavizcatalogue.com/"
-    class="uri">https://datavizcatalogue.com</a>
+- <a href="https://datavizcatalogue.com/"
+  class="uri">https://datavizcatalogue.com</a>
 
 ## TikTok profiles with nice data content
 
--   @[quimicaendata](https://www.tiktok.com/@quimicaendata)
+- @[quimicaendata](https://www.tiktok.com/@quimicaendata)
 
--   @[armandodatos](https://www.tiktok.com/@armandodatos)
+- @[armandodatos](https://www.tiktok.com/@armandodatos)
 
--   @[mai\_analytics](https://www.tiktok.com/@mai_analytics)
+- @[mai_analytics](https://www.tiktok.com/@mai_analytics)
 
--   @[mkfnx](https://www.tiktok.com/@mkfnx)
+- @[mkfnx](https://www.tiktok.com/@mkfnx)

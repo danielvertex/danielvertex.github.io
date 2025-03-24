@@ -64,8 +64,8 @@ Uses regular expressions and `datetime` to validate the date entered and handle 
 Takes the date entered and standardizes it. Thus, in `main()`, option 1, you can set the 30-day period to do your processing.
 
 {::nomarkdown}
-{% assign jupyter_path = "assets/jupyter/estadistico.ipynb" | relative_url %}
-{% capture notebook_exists %}{% file_exists assets/jupyter/estadistico.ipynb %}{% endcapture %}
+{% assign jupyter_path = "assets/jupyter/ticker.ipynb" | relative_url %}
+{% capture notebook_exists %}{% file_exists assets/jupyter/tiker.ipynb %}{% endcapture %}
 {% if notebook_exists == "true" %}
 {% jupyter_notebook jupyter_path %}
 {% else %}

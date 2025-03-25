@@ -10,6 +10,7 @@ related_posts: false
 ---
 
 # Introducción
+
 En el marco del taller "5 pasos para hacer análisis estadísticos", se presentó una metodología clara para llevar a cabo estudios basados en datos, utilizando herramientas como Excel y SPSS. Sin embargo, para este análisis, decidí implementar todo el proceso en Python, aprovechando su flexibilidad y el poder de sus bibliotecas especializadas. A lo largo de este informe, seguiré los cinco pilares propuestos en el taller, desde la comprensión profunda del problema hasta la presentación de resultados, mostrando cómo Python facilita cada etapa del análisis.
 
 Siguiendo la metodología presentada en el taller, el análisis se desarrolló a partir de la estructura propuesta en la "Arquitectura de las decisiones basadas en datos", que consta de cinco pilares fundamentales:
@@ -30,11 +31,12 @@ A partir de los resultados obtenidos, se generó nueva información que permiti�
 Finalmente, los resultados del análisis y las propuestas derivadas se presentaron de manera clara y estructurada, asegurando que el trabajo se tradujera en acciones y decisiones significativas.
 
 # Pilar 1: Cimientos. Comprensión Profunda
+
 El primer paso consistió en aclarar nuestras preguntas y definir un objetivo de investigación: algo que no sabemos y que vamos a descubrir con los datos. Esto marcó la dirección del análisis, los datos que necesitaríamos y el enfoque de la investigación.
 
 En este caso, la pregunta que guió el análisis fue:
 
-* ¿Cuál será el nivel de felicidad de los profesionales que estamos ahora mismo en este taller?
+- ¿Cuál será el nivel de felicidad de los profesionales que estamos ahora mismo en este taller?
 
 A partir de esta pregunta, se definieron los siguientes objetivos:
 
@@ -48,11 +50,11 @@ A partir de esta pregunta, se definieron los siguientes objetivos:
 
 Las unidades de estudio fueron los asistentes del taller en vivo, y las variables consideradas fueron:
 
-* Edad del participante.
+- Edad del participante.
 
-* Sexo del participante.
+- Sexo del participante.
 
-* Felicidad del participante.
+- Felicidad del participante.
 
 Para recolectar estos datos, se utilizó una encuesta online auto administrada en Google Forms, y el nivel de felicidad se midió con la Escala de Felicidad Subjetiva (Lyubomirsky & Lepper, 1999).
 
@@ -85,6 +87,7 @@ Se analizó la relación entre los niveles de felicidad subjetiva y la edad de l
 El histograma muestra que la distribución del total de felicidad subjetiva es aproximadamente simétrica, con un pico en el valor de 5. Esto indica que la mayoría de los participantes reportaron niveles moderados de felicidad subjetiva, mientras que los valores extremos (2 y 7) son menos frecuentes.
 
 # Pilar 5: Techo. Presentación de Resultados y Propuestas de Impacto
+
 1. Publicar un artículo en un blog: Escrir un artículo detallado en tu blog o en plataformas como Medium, explicando los hallazgos y su relevancia.
 2. Infografías visuales: Crear infografías atractivas que resuman los resultados clave y compártelas en redes sociales como Instagram, LinkedIn o Twitter.
 3. Publicaciones en redes sociales: Comparte fragmentos de tu análisis con gráficos y explicaciones breves en plataformas como LinkedIn, Twitter o Facebook.

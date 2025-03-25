@@ -5,6 +5,7 @@ description: CS50p FINALPROJECT
 img: assets/img/ticker_price.png
 importance: 4
 category: Python
+giscus_comments: true
 ---
 
 # TICKER INFORMATION
